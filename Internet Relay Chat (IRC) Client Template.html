@@ -44,8 +44,28 @@
         color: #dedede;
         padding: 2px 7px;
         margin-top: 10px;
+        position: relative;
         vertical-align: middle;
       }
+
+      /* "Semd message" button after input box. */
+      #workskin .irc .inputbox::after,
+      #workskin .irc .inputbox-empty::after {
+        color: #c0c0c0;
+        content: "\25b6";
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1.5em;
+        line-height: 1;
+        margin-left: 10px;
+        position: absolute;
+        right: 0.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        vertical-align: middle;
+      }
+
+      /* "Upload file" button before input box. */
       #workskin .irc .inputbox::before,
       #workskin .irc .inputbox-empty::before {
         color: #c0c0c0;
