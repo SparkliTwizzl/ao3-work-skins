@@ -1,117 +1,291 @@
 <html>
   <head>
     <style>
-      /* Default appearance. */
-      #workskin .irc {
+      /* Canonical styling rule ordering is as follows:
+      - Section
+      - Alphabetical by selector, with blanket rules taking priority over individual rules
+
+      Additionally, properties should be organized alphabetically unless styling priority necessitates superceding this convention.
+
+      EXAMPLE
+      1 - Section A
+      .class-A .subclass-A element-A,
+      .class-A .subclass-B element-A {...}
+
+      .class-A .subclass-A element-A {...}
+
+      .class-A .subclass-A element-B {...}
+
+      .class-A .subclass-B element-A {...}
+
+      .class-B {...}
+
+      2 - Section B
+      .class-A .subclass-A element-A {...}
+      */
+
+      /* 1 - Theme colors */
+      /* 1.1 - Dark theme (Default) */
+      /* Default colors */
+      #workskin .irc,
+      #workskin .irc.dark-theme {
         background: #2c2c2c;
-        border-radius: 0.5em;
+        border-color: #686868;
         color: #dedede;
-        font-family: "Helvetica";
-        padding: 10px 10px;
       }
 
-      /* Code blocks. */
-      #workskin .irc code {
+      /* Code blocks */
+      #workskin .irc code,
+      #workskin .irc.dark-theme code {
         background-color: #444444;
+        border-color: #686868;
         color: #fdab7f;
       }
 
-      /* Header 1, used for channel headers. */
-      #workskin .irc h1 {
-        background-color: #3c3c3c;
-        border-bottom: 2px solid;
+      /* Chat channel headers */
+      #workskin .irc h1,
+      #workskin .irc.dark-theme h1 {
+        background-color: #444444;
         border-color: #606060;
+      }
+
+      /* Text input boxes */
+      #workskin .irc .inputbox,
+      #workskin .irc .inputbox-empty,
+      #workskin .irc.dark-theme .inputbox,
+      #workskin .irc.dark-theme .inputbox-empty {
+        background-color: #444444;
+      }
+      #workskin .irc .inputbox,
+      #workskin .irc.dark-theme .inputbox {
+        color: #dedede;
+      }
+      #workskin .irc .inputbox-empty,
+      #workskin .irc.dark-theme .inputbox-empty {
+        color: #808080;
+      }
+
+      /* Buttons surrounding text input boxes */
+      #workskin .irc .inputbox::after,
+      #workskin .irc .inputbox-empty::after,
+      #workskin .irc .inputbox::before,
+      #workskin .irc .inputbox-empty::before,
+      #workskin .irc.dark-theme .inputbox::after,
+      #workskin .irc.dark-theme .inputbox-empty::after,
+      #workskin .irc.dark-theme .inputbox::before,
+      #workskin .irc.dark-theme .inputbox-empty::before {
+        color: #c0c0c0;
+      }
+
+      /* Links within messages */
+      #workskin .irc .link,
+      #workskin .irc.dark-theme .link {
+        color: #88c5ff;
+      }
+
+      /* User mentions */
+      #workskin .irc .mention,
+      #workskin .irc.dark-theme .mention {
+        background-color: #408040;
+        color: white;
+      }
+      #workskin .irc .mention:hover,
+      #workskin .irc.dark-theme .mention:hover {
+        background-color: #3daa3d;
+        color: white;
+      }
+
+      /* Highlighted messages */
+      #workskin .irc .message-highlight,
+      #workskin .irc.dark-theme .message-highlight {
+        background-color: #535328;
+      }
+
+      /* Typing indicators */
+      #workskin .irc .typing,
+      #workskin .irc.dark-theme .typing {
+        color: #909090;
+        font-size: 0.9em;
+        padding: 20px 0 0 20px;
+      }
+      /* 1.1 - /Dark theme */
+
+      /* 1.2 - Light theme */
+      /* Default colors */
+      #workskin .irc.light-theme {
+        background: #f9f9f9;
+        border-color: #c0c0c0;
+        color: #202020;
+      }
+
+      /* Code blocks */
+      #workskin .irc.light-theme code {
+        background-color: #e8e8e8;
+        border-color: #b0b0b0;
+        color: #a54410;
+      }
+
+      /* Chat channel headers */
+      #workskin .irc.light-theme h1 {
+        background-color: #e0e0e0;
+        border-color: #b0b0b0;
+        color: #808080;
+      }
+
+      /* Text input boxes */
+      #workskin .irc.light-theme .inputbox,
+      #workskin .irc.light-theme .inputbox-empty {
+        background-color: #e0e0e0;
+      }
+      #workskin .irc.light-theme .inputbox {
+        color: #202020;
+      }
+      #workskin .irc.light-theme .inputbox-empty {
+        color: #a0a0a0;
+      }
+
+      /* Buttons surrounding text input boxes */
+      #workskin .irc.light-theme .inputbox::after,
+      #workskin .irc.light-theme .inputbox-empty::after,
+      #workskin .irc.light-theme .inputbox::before,
+      #workskin .irc.light-theme .inputbox-empty::before {
+        color: #888888;
+      }
+
+      /* Links within messages */
+      #workskin .irc.light-theme .link {
+        color: #4e92f8;
+      }
+
+      /* User mentions */
+      #workskin .irc.light-theme .mention {
+        background-color: #b2f0a3;
+        color: black;
+      }
+      #workskin .irc.light-theme .mention:hover {
+        background-color: #429642;
+        color: white;
+      }
+
+      /* Highlighted messages */
+      #workskin .irc.light-theme .message-highlight {
+        background-color: #ebebb6;
+      }
+
+      /* Typing indicators */
+      #workskin .irc.light-theme .typing {
+        color: #909090;
+      }
+      /* 1.2 - /Light theme */
+      /* 1 - /Theme colors */
+
+      /* 2 - Layout */
+      /* Default styling */
+      #workskin .irc {
+        border-radius: 0.5em;
+        border-style: solid;
+        border-width: 2px;
+        font-family: "Helvetica";
+        padding: 10px;
+      }
+
+      /* Code blocks */
+      #workskin .irc code {
+        border-style: solid;
+        border-width: 1.5px;
+        font-weight: bold;
+      }
+
+      /* Chat channel headers */
+      #workskin .irc h1 {
+        border-style: solid;
+        border-width: 2px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        cursor: pointer;
         font-size: 1.5em;
         margin-top: 0;
         padding: 10px 10px;
         text-align: left;
       }
 
-      #workskin .irc h1::before {
-        content: "# ";
-      }
-
-      /* Prevent spillover font weight from other styling. */
+      /* Default span styling. (Prevents spillover from other styling.) */
       #workskin .irc span {
+        cursor: auto;
         font-weight: normal;
       }
 
-      /* Text input boxes. */
+      /* Text input boxes */
       #workskin .irc .inputbox,
       #workskin .irc .inputbox-empty {
-        background-color: #404040;
         border-radius: 0.33em;
-        color: #dedede;
+        cursor: text;
         padding: 2px 7px;
         margin-top: 10px;
         position: relative;
         vertical-align: middle;
       }
 
-      /* "Semd message" button after input box. */
+      #workskin .irc .inputbox .mention,
+      #workskin .irc .inputbox-empty .mention,
+      #workskin .irc .inputbox .user,
+      #workskin .irc .inputbox-empty .user {
+        cursor: text;
+      }
+
+      /* Buttons surrounding text input boxes */
       #workskin .irc .inputbox::after,
-      #workskin .irc .inputbox-empty::after {
-        color: #c0c0c0;
-        content: "\25b6";
+      #workskin .irc .inputbox-empty::after,
+      #workskin .irc .inputbox::before,
+      #workskin .irc .inputbox-empty::before {
         cursor: pointer;
         display: inline-block;
-        font-size: 1.5em;
         line-height: 1;
-        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      /* "Semd message" button after text input boxes */
+      #workskin .irc .inputbox::after,
+      #workskin .irc .inputbox-empty::after {
+        content: "\25b6";
+        font-size: 1.5em;
         position: absolute;
         right: 0.5em;
         top: 50%;
         transform: translateY(-50%);
-        vertical-align: middle;
       }
 
-      /* "Upload file" button before input box. */
+      /* "Upload file" button before text input boxes */
       #workskin .irc .inputbox::before,
       #workskin .irc .inputbox-empty::before {
-        color: #c0c0c0;
         content: "+";
-        cursor: pointer;
-        display: inline-block;
         font-size: 2em;
-        line-height: 1;
-        margin-right: 10px;
-        vertical-align: middle;
+        margin-right: 0.5em;
       }
 
-      /* Override text color for empty input boxes. */
-      #workskin .irc .inputbox-empty {
-        color: #808080;
-      }
-
-      /* "Clickable" links within messages. */
+      /* Links within messages */
       #workskin .irc .link {
         cursor: pointer;
         font-weight: bold;
         text-decoration: underline;
       }
 
-      /* Usernames in/around messages. */
-      #workskin .irc .mention,
-      #workskin .irc .sender,
-      #workskin .irc .user {
-        font-weight: bold;
-      }
-
-      /* Highighting for user mentions. */
+      /* User mentions */
       #workskin .irc .mention {
-        background-color: #408040;
         border-radius: 0.25em;
-        color: white;
+        cursor: pointer;
+        font-weight: bold;
         padding: 1px 3px;
       }
 
-      /* Pad messages for readability's sake. */
+      /* Pad messages for readability's sake */
       #workskin .irc .message,
       #workskin .irc .message-highlight {
         margin-bottom: 5px;
       }
 
-      /* Decorate message senders with `<` and `>`. */
+      /* Decorate message senders */
       #workskin .irc .message .sender::after,
       #workskin .irc .message-highlight .sender::after {
         content: "\003e";
@@ -121,21 +295,19 @@
         content: "\003c";
       }
 
-      /* Highlighting for mentioned messages. */
-      #workskin .irc .message-highlight {
-        background-color: #535328;
-      }
-
-      /* Replied message previews. */
+      /* Replied message previews */
       #workskin .irc .reply {
+        cursor: pointer;
         font-size: 0.85em;
         font-style: italic;
-        max-width: 30em;
+        max-width: 40em;
         overflow: hidden;
         padding-left: 20px;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
+      /* Decorate reply preview senders */
       #workskin .irc .reply .sender::after {
         content: ": ";
       }
@@ -144,12 +316,24 @@
         font-weight: normal;
       }
 
-      /* Styling to separate system messages from user ones. */
+      /* Override cursor for reply preview text */
+      #workskin .irc .reply .text {
+        cursor: pointer;
+      }
+
+      /* Usernames in/around messages */
+      #workskin .irc .sender,
+      #workskin .irc .user {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* Differentiate system messages from user messages */
       #workskin .irc .system {
         font-style: italic;
       }
 
-      /* Decorate message timestamps with `[` and `]`. */
+      /* Decorate message timestamps */
       #workskin .irc .time::after {
         content: "]";
       }
@@ -157,36 +341,40 @@
         content: "[";
       }
 
-      /* Typing indicators. */
+      /* Typing indicators */
       #workskin .irc .typing {
-        color: #909090;
         font-size: 0.9em;
         padding: 20px 0 0 20px;
       }
-      #workskin .irc .typing::after {
-        content: "...";
-      }
+      /* 2 - /Layout */
+
     </style>
   </head>
   <body>
     <div id="workskin">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>A theme.</p>
 
-      <dl class="irc">
+      <div class="irc dark-theme">
 
-        <h1>seuss-on-the-loose</h1>
+        <h1># seuss-on-the-loose</h1>
+
+        <div class="message user">
+          <span class="time">04:43</span>
+          <span class="sender">Thing-1</span>
+          <span class="text">sup dorks</span>
+        </div>
 
         <div class="message system">
           <span class="time">05:02</span>
           <span class="sender">channel</span>
-          <span class="text"><span class="user">Thing-1</span> came online</span>
+          <span class="text"><span class="user">HatCat</span> came online</span>
         </div>
 
-        <div class="message user">
+        <div class="message-highlight system">
           <span class="time">05:02</span>
-          <span class="sender">Thing-1</span>
-          <span class="text">sup dorks</span>
+          <span class="sender">silent</span>
+          <span class="text"><span class="mention">@HatCat</span>, you have <code>15</code> unread messages. (<span class="link">oldest</span> --- <span class="link">mark all read</span> --- <span class="link">dismiss</span>)</span>
         </div>
 
         <div class="message user">
@@ -203,30 +391,6 @@
 
         <div class="message user">
           <span class="time">05:07</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:07</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:07</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:07</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:08</span>
           <span class="sender">Thing-2</span>
           <span class="text">spam</span>
         </div>
@@ -254,42 +418,17 @@
         </div>
 
         <div class="system typing">
-          <span class="sender">Thing-1</span> is
-          typing</div>
+          <span class="sender">Thing-1</span> is typing...</div>
 
         <div class="inputbox-empty">#seuss-on-the-loose</div>
 
-      </dl>
+      </div>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <dl class="irc">
+      <div class="irc dark-theme">
 
-        <h1>seuss-on-the-loose</h1>
-
-        <div class="message user">
-          <span class="time">05:08</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:08</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:08</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
-
-        <div class="message user">
-          <span class="time">05:08</span>
-          <span class="sender">Thing-2</span>
-          <span class="text">spam</span>
-        </div>
+        <h1># seuss-on-the-loose</h1>
 
         <div class="message user">
           <span class="time">05:08</span>
@@ -364,9 +503,7 @@
 
         <div class="inputbox">chill the hell out <span class="user">@Thing-2</span></div>
 
-      </dl>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
 
     </div>
   </body>
