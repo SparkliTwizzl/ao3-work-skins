@@ -213,7 +213,7 @@
         text-align: left;
       }
 
-      /* Default span styling. (Prevents spillover from other styling.) */
+      /* Default element styling. (Prevents spillover from other styling.) */
       #workskin .irc span {
         cursor: auto;
         font-weight: normal;
@@ -281,11 +281,23 @@
         font-weight: bold;
         padding: 1px 3px;
       }
+      #workskin .irc .mention:hover {
+        text-decoration: underline;
+      }
 
       /* Pad messages for readability's sake */
       #workskin .irc .message,
       #workskin .irc .message-highlight {
         margin-bottom: 5px;
+      }
+
+      /* Usernames in messages */
+      #workskin .irc .message .sender,
+      #workskin .irc .message .user,
+      #workskin .irc .message-highlight .sender,
+      #workskin .irc .message-highlight .user {
+        cursor: pointer;
+        font-weight: bold;
       }
 
       /* Decorate message senders */
@@ -324,13 +336,6 @@
         cursor: pointer;
       }
 
-      /* Usernames in/around messages */
-      #workskin .irc .sender,
-      #workskin .irc .user {
-        cursor: pointer;
-        font-weight: bold;
-      }
-
       /* Differentiate system messages from user messages */
       #workskin .irc .system {
         font-style: italic;
@@ -346,10 +351,16 @@
 
       /* Typing indicators */
       #workskin .irc .typing {
+        cursor: default;
         font-size: 0.875em;
         font-style: italic;
         padding-left: 20px;
         padding-top: 20px;
+      }
+
+      /* Override cursor for users in typing indicators */
+      #workskin .irc .typing .user {
+        cursor: default;
       }
       /* 2 - /Layout */
 
@@ -358,9 +369,11 @@
   <body>
     <div id="workskin">
 
-      <p>A theme.</p>
+      <h1>Dark theme.</h1>
 
-      <div class="irc dark-theme">
+      <h2>Desktop UI</h2>
+
+      <dl class="irc dark-theme">
 
         <h1># seuss-on-the-loose</h1>
 
@@ -427,11 +440,11 @@
 
         <div class="inputbox-empty">#seuss-on-the-loose</div>
 
-      </div>
+      </dl>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Mobile UI.</h2>
 
-      <div class="irc mobile dark-theme">
+      <dl class="irc mobile dark-theme">
 
         <h1># seuss-on-the-loose</h1>
 
@@ -510,9 +523,165 @@
 
         <div class="inputbox">chill the hell out <span class="user">@Thing-2</span>|</div>
 
-      </div>
+      </dl>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <hr />
+
+      <h1>Light theme.</h1>
+
+      <h2>Desktop UI</h2>
+
+      <dl class="irc light-theme">
+
+        <h1># seuss-on-the-loose</h1>
+
+        <div class="message user">
+          <span class="time">04:43</span>
+          <span class="sender">Thing-1</span>
+          <span class="text">sup dorks</span>
+        </div>
+
+        <div class="message system">
+          <span class="time">05:02</span>
+          <span class="sender">channel</span>
+          <span class="text"><span class="user">HatCat</span> came online</span>
+        </div>
+
+        <div class="message-highlight system">
+          <span class="time">05:02</span>
+          <span class="sender">silent</span>
+          <span class="text"><span class="mention">@HatCat</span>, you have <code>15</code> unread messages. (<span class="link">oldest</span> --- <span class="link">mark all read</span> --- <span class="link">dismiss</span>)</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:05</span>
+          <span class="sender">HatCat</span>
+          <span class="text">hey <span class="mention">@Thing-1</span> whats up</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:07</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:07</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:08</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="reply">
+          <span class="sender">HatCat</span>
+          <span class="text">hey <span class="mention">@Thing-1</span> whats up</span>
+        </div>
+        <div class="message-highlight user">
+          <span class="time">05:08</span>
+          <span class="sender">Thing-1</span>
+          <span class="text">by all known laws of aviation, never gonna let you down, in 1998, The Undertaker threw Mankind off Hell In A Cell, and plummeted 16 ft through an announcer's table</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:08</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="typing">
+          <span class="sender">Thing-1</span> is typing...</div>
+
+        <div class="inputbox-empty">#seuss-on-the-loose</div>
+
+      </dl>
+
+      <h2>Mobile UI.</h2>
+
+      <dl class="irc mobile light-theme">
+
+        <h1># seuss-on-the-loose</h1>
+
+        <div class="message user">
+          <span class="time">05:08</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:09</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:09</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message-highlight user">
+          <span class="time">05:09</span>
+          <span class="sender">Thing-1</span>
+          <span class="text">yo <span class="mention">@HatCat</span> can you mute <span class="mention">@Thing-2</span> for hells sake i cant hear myself think</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:09</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">spam</span>
+        </div>
+
+        <div class="message-highlight user">
+          <span class="time">05:09</span>
+          <span class="sender">Thing-2</span>
+          <span class="text">wait
+            no <span class="mention">@HatCat</span></span>
+        </div>
+
+        <div class="message system">
+          <span class="time">05:09</span>
+          <span class="sender">channel</span>
+          <span class="text"><span class="user">Thing-2</span> was muted by a moderator</span>
+        </div>
+
+        <div class="message user">
+          <span class="time">05:09</span>
+          <span class="sender">HatCat</span>
+          <span class="text">did</span>
+        </div>
+
+        <div class="reply">
+          <span class="sender">Thing-1</span>
+          <span class="text">by all known laws of aviation, never gonna let you down, in 1998, The Undertaker threw Mankind off Hell In A Cell, and plummeted 16 ft through an announcer's table</span>
+        </div>
+        <div class="message user">
+          <span class="time">05:09</span>
+          <span class="sender">HatCat</span>
+          <span class="text">how dare you do this to me</span>
+        </div>
+
+        <div class="message system message-highlight">
+          <span class="time">05:10</span>
+          <span class="sender">silent</span>
+          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing 2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
+        </div>
+
+        <div class="message system">
+          <span class="time">05:10</span>
+          <span class="sender">channel</span>
+          <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
+        </div>
+
+        <div class="typing"><span class="user">Thing-1</span> is typing...</div>
+
+        <div class="inputbox">chill the hell out <span class="user">@Thing-2</span>|</div>
+
+      </dl>
 
     </div>
   </body>
