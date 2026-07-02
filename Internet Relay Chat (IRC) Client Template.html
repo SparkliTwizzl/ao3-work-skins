@@ -105,8 +105,6 @@
       #workskin .irc .typing,
       #workskin .irc.dark-theme .typing {
         color: #909090;
-        font-size: 0.9em;
-        padding: 20px 0 0 20px;
       }
       /* 1.1 - /Dark theme */
 
@@ -189,6 +187,15 @@
         padding: 10px;
       }
 
+      /* Alternate styling for mobile UI */
+      #workskin .irc.mobile {
+        left: 0;
+        margin: auto;
+        max-width: 30em;
+        position: relative;
+        right: 0;
+      }
+
       /* Code blocks */
       #workskin .irc code {
         border-style: solid;
@@ -198,11 +205,7 @@
 
       /* Chat channel headers */
       #workskin .irc h1 {
-        border-style: solid;
-        border-width: 2px;
-        border-top: none;
-        border-left: none;
-        border-right: none;
+        border-bottom: 2px solid;
         cursor: pointer;
         font-size: 1.5em;
         margin-top: 0;
@@ -245,7 +248,7 @@
         vertical-align: middle;
       }
 
-      /* "Semd message" button after text input boxes */
+      /* "Send message" button after text input boxes */
       #workskin .irc .inputbox::after,
       #workskin .irc .inputbox-empty::after {
         content: "\25b6";
@@ -343,8 +346,10 @@
 
       /* Typing indicators */
       #workskin .irc .typing {
-        font-size: 0.9em;
-        padding: 20px 0 0 20px;
+        font-size: 0.875em;
+        font-style: italic;
+        padding-left: 20px;
+        padding-top: 20px;
       }
       /* 2 - /Layout */
 
@@ -417,7 +422,7 @@
           <span class="text">spam</span>
         </div>
 
-        <div class="system typing">
+        <div class="typing">
           <span class="sender">Thing-1</span> is typing...</div>
 
         <div class="inputbox-empty">#seuss-on-the-loose</div>
@@ -426,7 +431,7 @@
 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <div class="irc dark-theme">
+      <div class="irc mobile dark-theme">
 
         <h1># seuss-on-the-loose</h1>
 
@@ -451,7 +456,7 @@
         <div class="message-highlight user">
           <span class="time">05:09</span>
           <span class="sender">Thing-1</span>
-          <span class="text">yo <span class="mention">@HatCat</span> can you mute <span class=user>@Thing-2</span> for hells sake i cant hear myself think</span>
+          <span class="text">yo <span class="mention">@HatCat</span> can you mute <span class="mention">@Thing-2</span> for hells sake i cant hear myself think</span>
         </div>
 
         <div class="message user">
@@ -492,7 +497,7 @@
         <div class="message system message-highlight">
           <span class="time">05:10</span>
           <span class="sender">silent</span>
-          <span class="text"><span class="mention">@HatCat</span><span class="user">Thing 2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
+          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing 2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
         </div>
 
         <div class="message system">
@@ -501,9 +506,13 @@
           <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
         </div>
 
-        <div class="inputbox">chill the hell out <span class="user">@Thing-2</span></div>
+        <div class="typing"><span class="user">Thing-1</span> is typing...</div>
+
+        <div class="inputbox">chill the hell out <span class="user">@Thing-2</span>|</div>
 
       </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     </div>
   </body>
