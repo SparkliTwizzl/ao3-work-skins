@@ -47,6 +47,7 @@
       #workskin .irc.dark-theme h1 {
         background-color: #444444;
         border-color: #606060;
+        color: #c0c0c0;
       }
 
       /* Text input boxes */
@@ -127,7 +128,7 @@
       #workskin .irc.light-theme h1 {
         background-color: #e0e0e0;
         border-color: #b0b0b0;
-        color: #808080;
+        color: #707070;
       }
 
       /* Text input boxes */
@@ -228,6 +229,11 @@
         margin-top: 10px;
         position: relative;
         vertical-align: middle;
+      }
+
+      #workskin .irc .inputbox:not(.typing ~ .inputbox),
+      #workskin .irc .inputbox-empty:not(.typing ~ .inputbox-empty) {
+        margin-top: 27px;
       }
 
       #workskin .irc .inputbox .mention,
@@ -355,7 +361,7 @@
         font-size: 0.875em;
         font-style: italic;
         padding-left: 20px;
-        padding-top: 20px;
+        padding-top: 10px;
       }
 
       /* Override cursor for users in typing indicators */
@@ -519,9 +525,7 @@
           <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
         </div>
 
-        <div class="typing"><span class="user">Thing-1</span> is typing...</div>
-
-        <div class="inputbox">chill the hell out <span class="user">@Thing-2</span>|</div>
+        <div class="inputbox">chill the hell out <span class="mention">@Thing-2</span>|</div>
 
       </dl>
 
@@ -677,9 +681,7 @@
           <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
         </div>
 
-        <div class="typing"><span class="user">Thing-1</span> is typing...</div>
-
-        <div class="inputbox">chill the hell out <span class="user">@Thing-2</span>|</div>
+        <div class="inputbox">chill the hell out <span class="mention">@Thing-2</span>|</div>
 
       </dl>
 
