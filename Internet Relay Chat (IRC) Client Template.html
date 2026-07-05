@@ -236,13 +236,6 @@
         margin-top: 27px;
       }
 
-      #workskin .irc .inputbox .mention,
-      #workskin .irc .inputbox-empty .mention,
-      #workskin .irc .inputbox .user,
-      #workskin .irc .inputbox-empty .user {
-        cursor: text;
-      }
-
       /* Buttons surrounding text input boxes */
       #workskin .irc .inputbox::after,
       #workskin .irc .inputbox-empty::after,
@@ -271,6 +264,12 @@
         content: "+";
         font-size: 2em;
         margin-right: 0.5em;
+      }
+
+      /* Usernames in text input boxes */
+      #workskin .irc .inputbox .user,
+      #workskin .irc .inputbox-empty .user {
+        cursor: text;
       }
 
       /* Links within messages */
@@ -303,7 +302,6 @@
       #workskin .irc .message-highlight .sender,
       #workskin .irc .message-highlight .user {
         cursor: pointer;
-        font-weight: bold;
       }
 
       /* Decorate message senders */
@@ -342,6 +340,12 @@
         cursor: pointer;
       }
 
+      /* Default styling for usernames */
+      #workskin .irc .sender,
+      #workskin .irc .user {
+        font-weight: bold;
+      }
+
       /* Differentiate system messages from user messages */
       #workskin .irc .system {
         font-style: italic;
@@ -367,6 +371,7 @@
       /* Override cursor for users in typing indicators */
       #workskin .irc .typing .user {
         cursor: default;
+        font-weight: bold;
       }
       /* 2 - /Layout */
 
@@ -442,7 +447,7 @@
         </div>
 
         <div class="typing">
-          <span class="sender">Thing-1</span> is typing...</div>
+          <span class="user">Thing-1</span> is typing...</div>
 
         <div class="inputbox-empty">#seuss-on-the-loose</div>
 
@@ -516,7 +521,7 @@
         <div class="message system message-highlight">
           <span class="time">05:10</span>
           <span class="sender">silent</span>
-          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing 2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
+          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing-2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
         </div>
 
         <div class="message system">
@@ -525,7 +530,7 @@
           <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
         </div>
 
-        <div class="inputbox">chill the hell out <span class="mention">@Thing-2</span>|</div>
+        <div class="inputbox">wtf <span class="mention">@Thing-2</span> chill the hell out|</div>
 
       </dl>
 
@@ -598,7 +603,7 @@
         </div>
 
         <div class="typing">
-          <span class="sender">Thing-1</span> is typing...</div>
+          <span class="user">Thing-1</span> is typing...</div>
 
         <div class="inputbox-empty">#seuss-on-the-loose</div>
 
@@ -672,7 +677,7 @@
         <div class="message system message-highlight">
           <span class="time">05:10</span>
           <span class="sender">silent</span>
-          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing 2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
+          <span class="text"><span class="mention">@HatCat</span>, <span class="user">Thing-2</span> has requested to be unmuted <code>18</code> times (<span class="link">grant</span> --- <span class="link">deny</span> --- <span class="link">dismiss</span>)</span>
         </div>
 
         <div class="message system">
@@ -681,7 +686,7 @@
           <span class="text"><span class="user">Thing-2</span> was banned for <code>60 minutes</code> by a moderator</span>
         </div>
 
-        <div class="inputbox">chill the hell out <span class="mention">@Thing-2</span>|</div>
+        <div class="inputbox">wtf <span class="mention">@Thing-2</span> chill the hell out|</div>
 
       </dl>
 
