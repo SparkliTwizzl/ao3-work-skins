@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <style>
+
+      /*
+      Adapted from "How to Create Notebook Lined Paper on AO3" by La_Temperanza
+      https://archiveofourown.org/works/4414436?style=creator
+      */
+
+      /* Hide an element when work skin is enabled */
+      #workskin .hide {
+        display: none;
+      }
+
+      /* Base college-ruled paper styling */
+      #workskin .paper.college-ruled {
+        background: linear-gradient(to bottom,#FFFFFF 24px,#00b0d7 1px);
+        background-size: 100% 25px;
+        border-radius: 5px;
+        height: 100%;
+        margin: 10px auto;
+        overflow: hidden;
+        position: relative;
+        width: 97%;
+        -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -moz-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -ms-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -o-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+      }
+
+      /* Left-side margin line */
+      #workskin .paper.college-ruled::before {
+        background: #db4034;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 10%;
+        position: absolute;
+        top: 0;
+        width: 1px;
+        z-index: 1;
+      }
+
+      /* Prevent hover effects on table elements */
+      #workskin .paper.college-ruled tr:hover,
+      #workskin .paper.college-ruled td:hover {
+        background: none;
+      }
+
+      /* Add blank headroom over top of rule lines for top page margin */
+      #workskin .paper.college-ruled .headroom,
+      #workskin .paper.notepad .headroom {
+        background: #ffffff;
+        background-size: 100%;
+        border-radius: 5px;
+        height: 80px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      /* Extra spacing for text directly following a headroom element */
+      #workskin .paper.college-ruled .headroom + .text,
+      #workskin .paper.notepad .headroom + .text {
+        margin-top: 95px;
+      }
+
+      /* Extra padding for text on papers with a left margin */
+      #workskin .paper.college-ruled .text {
+        margin-left: 11%;
+      }
+
+      /* Base notepad paper styling */
+      #workskin .paper.notepad {
+        background: linear-gradient(to bottom,#FFFFFF 24px,#808080 1px);
+        background-size: 100% 25px;
+        border-radius: 5px;
+        height: 100%;
+        margin: 10px auto;
+        overflow: hidden;
+        position: relative;
+        width: 97%;
+        -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -moz-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -ms-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -o-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+      }
+
+      /* Basic text on college-ruled paper */
+      #workskin .paper .text.handwriting {
+        color: #000000;
+        font-family: "Comic Sans MS", "Coming Soon", casual, sans-serif;
+        font-size: 15px;
+        line-height: 25px;
+        margin-bottom: 5px;
+        margin-left: 2.5%;
+        margin-top: -5px;
+      }
+
+      /* Title text placed in headroom */
+      #workskin .paper .text.handwriting.title {
+        color: #000000;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 15px;
+        margin-bottom: 10px;
+        margin-left: 8%;
+        margin-top: 76px;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      /* Scrawled marks in red felt pen */
+      #workskin .paper .text.handwriting.red-marker {
+        color: #FF0000;
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 20px;
+        position: absolute;
+        left: 10px;
+        top: 30px;
+        transform: rotate(-3deg);
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="workskin">
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="text handwriting">Text on college-ruled paper with no top margin.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="headroom"> </div>
+            <div class="text handwriting">Text on college-ruled paper with top margin.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="headroom">
+              <p class="text handwriting title">Title text</p>
+            </div>
+            <div class="text handwriting">Text on college-ruled paper with top margin and title.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="headroom">
+              <div class="text handwriting title">
+                <span class="hide">Hidden descriptive text only visible with work skin disabled. "</span>Title text<span class="hide"><br><br>
+                </span>
+              </div>
+            </div>
+            <div class="text handwriting">
+              <span class="hide">"</span>Text on college-ruled paper with top margin, title, and pen markings.<span class="hide">"</span><br>
+              <span class="hide">More hidden descriptive text. "</span><span class="text handwriting red-marker">Felt pen markings.</span><span class="hide">"</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper notepad">
+        <tr>
+          <td>
+            <div class="headroom">
+              <p class="text handwriting title">Title text</p>
+            </div>
+            <div class="text handwriting">Text on notepad paper with top margin and title.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
