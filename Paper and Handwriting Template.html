@@ -3,8 +3,11 @@
     <style>
 
       /*
-      Adapted from "How to Create Notebook Lined Paper on AO3" by La_Temperanza
-      https://archiveofourown.org/works/4414436?style=creator
+      Adapted from:
+        - "How to Create Notebook Lined Paper on AO3" by La_Temperanza (https://archiveofourown.org/works/4414436)
+        - "Sticky Notes on AO3 Without Using Images" by La_Temperanza (https://archiveofourown.org/works/4390949)
+
+      Expanded to more paper types, and modified to be more modular.
       */
 
       /* Hide an element when work skin is enabled */
@@ -12,24 +15,51 @@
         display: none;
       }
 
-      /* Base college-ruled paper styling */
-      #workskin .paper.college-ruled {
-        background: linear-gradient(to bottom,#FFFFFF 24px,#00b0d7 1px);
-        background-size: 100% 25px;
-        border-radius: 5px;
-        height: 100%;
+      /* Base styling for all paper */
+      #workskin .paper {
+        border-radius: 1px;
         margin: 10px auto;
         overflow: hidden;
         position: relative;
         width: 97%;
-        -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
         -moz-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
         -ms-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
         -o-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-        box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+        -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
       }
 
-      /* Left-side margin line */
+      /* Prevent hover effects on table elements for paper */
+      #workskin .paper tr:hover,
+      #workskin .paper td:hover {
+        background: none;
+      }
+
+      /* Blank top-margin space over top of page, covers any existing styling */
+      #workskin .paper .top-margin {
+        background: #ffffff;
+        background-size: 100%;
+        border-radius: 5px;
+        height: 80px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      /* Extra spacing for text directly following a top-margin element */
+      #workskin .paper .top-margin + .text {
+        margin-top: 95px;
+      }
+
+      /* Additional styling for college-ruled paper */
+      #workskin .paper.college-ruled {
+        background: linear-gradient(to bottom,#FFFFFF 24px,#00b0d7 1px);
+        background-size: 100% 25px;
+      }
+
+      /* Left-side margin line for college-ruled paper */
       #workskin .paper.college-ruled::before {
         background: #db4034;
         content: '';
@@ -42,58 +72,128 @@
         z-index: 1;
       }
 
-      /* Prevent hover effects on table elements */
-      #workskin .paper.college-ruled tr:hover,
-      #workskin .paper.college-ruled td:hover {
-        background: none;
-      }
-
-      /* Add blank headroom over top of rule lines for top page margin */
-      #workskin .paper.college-ruled .headroom,
-      #workskin .paper.notepad .headroom {
-        background: #ffffff;
-        background-size: 100%;
-        border-radius: 5px;
-        height: 80px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-      }
-
-      /* Extra spacing for text directly following a headroom element */
-      #workskin .paper.college-ruled .headroom + .text,
-      #workskin .paper.notepad .headroom + .text {
-        margin-top: 95px;
-      }
-
-      /* Extra padding for text on papers with a left margin */
-      #workskin .paper.college-ruled .text {
-        margin-left: 11%;
+      /* Title text on lined paper */
+      #workskin .paper.college-ruled .text.title,
+      #workskin .paper.notepad .text.title {
+        margin-top: 0;
       }
 
       /* Base notepad paper styling */
       #workskin .paper.notepad {
-        background: linear-gradient(to bottom,#FFFFFF 24px,#808080 1px);
+        background: linear-gradient(to bottom,#FFFFFF 24px,#b9b9b9 1px);
         background-size: 100% 25px;
-        border-radius: 5px;
-        height: 100%;
-        margin: 10px auto;
-        overflow: hidden;
-        position: relative;
-        width: 97%;
-        -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-        -moz-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-        -ms-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-        -o-box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-        box-shadow: 3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
       }
 
-      /* Basic text on college-ruled paper */
-      #workskin .paper .text.handwriting {
+      /* Component slants */
+      #workskin .paper .slant-left,
+      #workskin .paper.slant-left {
+        transform: rotate(4deg);
+        -moz-transform: rotate(4deg);
+        -o-transform: rotate(4deg);
+        -webkit-transform: rotate(4deg);
+      }
+      #workskin .paper .slant-left-hard,
+      #workskin .paper.slant-left-hard {
+        transform: rotate(6deg);
+        -moz-transform: rotate(6deg);
+        -o-transform: rotate(6deg);
+        -webkit-transform: rotate(6deg);
+      }
+      #workskin .paper .slant-left-slight,
+      #workskin .paper.slant-left-slight {
+        transform: rotate(2deg);
+        -moz-transform: rotate(2deg);
+        -o-transform: rotate(2deg);
+        -webkit-transform: rotate(2deg);
+      }
+      #workskin .paper .slant-right,
+      #workskin .paper.slant-right {
+        transform: rotate(-4deg);
+        -moz-transform: rotate(-4deg);
+        -o-transform: rotate(-4deg);
+        -webkit-transform: rotate(-4deg);
+      }
+      #workskin .paper .slant-right-hard,
+      #workskin .paper.slant-right-hard {
+        transform: rotate(-6deg);
+        -moz-transform: rotate(-6deg);
+        -o-transform: rotate(-6deg);
+        -webkit-transform: rotate(-6deg);
+      }
+      #workskin .paper .slant-right-slight,
+      #workskin .paper.slant-right-slight {
+        transform: rotate(-2deg);
+        -moz-transform: rotate(-2deg);
+        -o-transform: rotate(-2deg);
+        -webkit-transform: rotate(-2deg);
+      }
+
+      /* Width compensation for slanted paper contents (Necessary to prevent visual artifacts for narrow element contents) */
+      #workskin .paper .slant-left,
+      #workskin .paper .slant-right,
+      #workskin .paper .slant-left-hard,
+      #workskin .paper .slant-right-hard,
+      #workskin .paper .slant-left-slight,
+      #workskin .paper .slant-right-slight {
+        width: fit-content;
+      }
+
+      /* Margin compensation for slanted paper */
+      #workskin .paper.slant-left,
+      #workskin .paper.slant-right {
+        margin-bottom: 3em;
+        margin-top: 3em;
+      }
+      #workskin .paper.slant-left-hard,
+      #workskin .paper.slant-right-hard {
+        margin-bottom: 4em;
+        margin-top: 4em;
+      }
+      #workskin .paper.slant-left-slight,
+      #workskin .paper.slant-right-slight {
+        margin-bottom: 2em;
+        margin-top: 2em;
+      }
+
+      /* Base sticky note paper styling */
+      #workskin .paper.sticky-note {
+        background: #ffffff;
+        display: block;
+        width: 20em;
+        height: 20em;
+        padding: 1em;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -moz-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -o-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+      }
+
+      /* Sticky note colors */
+      #workskin .paper.sticky-note.blue { background: #a0d0cf; }
+      #workskin .paper.sticky-note.blue.pastel { background: #c9f3f2; }
+      #workskin .paper.sticky-note.green { background: #a6d740; }
+      #workskin .paper.sticky-note.green.pastel { background: #dcfa9a; }
+      #workskin .paper.sticky-note.indigo { background: #2aaddc; }
+      #workskin .paper.sticky-note.indigo.pastel { background: #a1e6ff; }
+      #workskin .paper.sticky-note.orange { background: #f6c02c; }
+      #workskin .paper.sticky-note.orange.pastel { background: #ffde83; }
+      #workskin .paper.sticky-note.pink { background: #ff6c9d; }
+      #workskin .paper.sticky-note.pink.pastel { background: #ffb6ce; }
+      #workskin .paper.sticky-note.purple { background: #bf80c6; }
+      #workskin .paper.sticky-note.purple.pastel { background: #e4b8e9; }
+      #workskin .paper.sticky-note.salmon { background: #f9adb2; }
+      #workskin .paper.sticky-note.salmon.pastel { background: #ffcacd; }
+      #workskin .paper.sticky-note.yellow { background: #ebe343; }
+      #workskin .paper.sticky-note.yellow.pastel { background: #fffa98; }
+
+      /* Default styling for text on paper */
+      #workskin .paper .text {
         color: #000000;
-        font-family: "Comic Sans MS", "Coming Soon", casual, sans-serif;
+        font-family: "Calibri", "Arial", sans-serif;
         font-size: 15px;
         line-height: 25px;
         margin-bottom: 5px;
@@ -101,90 +201,513 @@
         margin-top: -5px;
       }
 
-      /* Title text placed in headroom */
-      #workskin .paper .text.handwriting.title {
-        color: #000000;
+      /* Text colors */
+      #workskin .paper .text.color-black { color: #000000; }
+      #workskin .paper .text.color-blue { color: #00a0df; }
+      #workskin .paper .text.color-brown { color: #8b5814; }
+      #workskin .paper .text.color-cyan { color: #00e3eb; }
+      #workskin .paper .text.color-dgrey { color: #666666; }
+      #workskin .paper .text.color-green { color: #07b102; }
+      #workskin .paper .text.color-indigo { color: #0400ff; }
+      #workskin .paper .text.color-lgrey { color: #a3a3a3; }
+      #workskin .paper .text.color-lime { color: #94e400; }
+      #workskin .paper .text.color-magenta { color: #ff00ff; }
+      #workskin .paper .text.color-orange { color: #ff7300; }
+      #workskin .paper .text.color-pink { color: #ff00c8; }
+      #workskin .paper .text.color-purple { color: #ae00ff; }
+      #workskin .paper .text.color-red { color: #ff0000; }
+      #workskin .paper .text.color-tan { color: #dab588; }
+      #workskin .paper .text.color-teal { color: #00d394; }
+      #workskin .paper .text.color-yellow { color: #ddc700; }
+      #workskin .paper .text.color-white { color: #d0d0d0; }
+
+      /* Styling for handwritten text on paper */
+      #workskin .paper .text.handwriting {
+        font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
+      }
+
+      /* Title text placed in top margin */
+      #workskin .paper .text.title {
         font-size: 15px;
         font-weight: bold;
         line-height: 15px;
         margin-bottom: 10px;
         margin-left: 8%;
-        margin-top: 76px;
+        margin-top: 10px;
         padding-left: 0;
         text-align: center;
       }
 
-      /* Scrawled marks in red felt pen */
-      #workskin .paper .text.handwriting.red-marker {
-        color: #FF0000;
+      /* Scrawled notes in top margin */
+      #workskin .paper .text.top-margin-note {
         font-size: 25px;
         font-weight: bold;
         line-height: 20px;
         position: absolute;
         left: 10px;
         top: 30px;
-        transform: rotate(-3deg);
-        -webkit-transform: rotate(-3deg);
-        -moz-transform: rotate(-3deg);
-        -o-transform: rotate(-3deg);
+      }
+
+      /* Title text placed in top margin */
+      #workskin .paper .top-margin .text.title {
+        margin-top: 76px;
+      }
+
+      /* PRIORITY OVERRIDE RULES */
+      /* Priority necessitates breaking sorting rules */
+
+      /* Extra padding for text on papers with a left margin */
+      #workskin .paper.college-ruled .text {
+        margin-left: 11%;
       }
 
     </style>
   </head>
   <body>
     <div id="workskin">
-      <table class="paper college-ruled">
+
+      <h1>Text and paper effects</h1>
+
+      <table class="paper">
         <tr>
           <td>
-            <div class="text handwriting">Text on college-ruled paper with no top margin.</div>
+            <br />
+            <div class="text">Printed text.</div>
+            <div class="text handwriting">Handwriting.</div>
+            <div class="text color-red">Red text.</div>
+            <div class="text color-orange">Orange text.</div>
+            <div class="text color-yellow">Yellow text.</div>
+            <div class="text color-lime">Lime text.</div>
+            <div class="text color-green">Green text.</div>
+            <div class="text color-teal">Teal text.</div>
+            <div class="text color-cyan">Cyan text.</div>
+            <div class="text color-blue">Blue text.</div>
+            <div class="text color-indigo">Indigo text.</div>
+            <div class="text color-purple">Purple text.</div>
+            <div class="text color-pink">Pink text.</div>
+            <div class="text color-magenta">Magenta text.</div>
+            <div class="text color-brown">Brown text.</div>
+            <div class="text color-tan">Tan text.</div>
+            <div class="text color-black">Black text.</div>
+            <div class="text color-dgrey">Dark grey text.</div>
+            <div class="text color-lgrey">Light grey text.</div>
+            <div class="text color-white">White text.</div>
           </td>
         </tr>
       </table>
 
-      <table class="paper college-ruled">
+      <table class="paper">
         <tr>
           <td>
-            <div class="headroom"> </div>
-            <div class="text handwriting">Text on college-ruled paper with top margin.</div>
+            <br />
+            <div class="text slant-left-hard">Slanted text.</div>
+            <div class="text slant-left">Slanted text.</div>
+            <div class="text slant-left-slight">Slanted text.</div>
+            <div class="text">Slanted text.</div>
+            <div class="text slant-right-slight">Slanted text.</div>
+            <div class="text slant-right">Slanted text.</div>
+            <div class="text slant-right-hard">Slanted text.</div>
           </td>
         </tr>
       </table>
 
-      <table class="paper college-ruled">
+      <table class="paper slant-left-hard">
         <tr>
           <td>
-            <div class="headroom">
-              <p class="text handwriting title">Title text</p>
+            <div class="text">Slanted paper.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h1>Blank paper</h1>
+
+      <h2>Basic</h2>
+
+      <table class="paper">
+        <tr>
+          <td>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>With title</h2>
+
+      <table class="paper">
+        <tr>
+          <td>
+            <div class="text title">Title</div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>With top margin</h2>
+
+      <table class="paper">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>With top margin and title</h2>
+
+      <table class="paper">
+        <tr>
+          <td>
+            <div class="top-margin">
+              <div class="text title">Title</div>
             </div>
-            <div class="text handwriting">Text on college-ruled paper with top margin and title.</div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
+      <h2>With note in top margin</h2>
+
+      <table class="paper">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <span class="text top-margin-note">Lorem ipsum dolor sit amet...</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h1>College-ruled paper</h1>
+
+      <h2>Basic</h2>
+
       <table class="paper college-ruled">
         <tr>
           <td>
-            <div class="headroom">
-              <div class="text handwriting title">
-                <span class="hide">Hidden descriptive text only visible with work skin disabled. "</span>Title text<span class="hide"><br><br>
-                </span>
-              </div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Title</h2>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="text title">Title</div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Top margin</h2>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Top margin and title</h2>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="top-margin">
+              <p class="text title handwriting">Title</p>
             </div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Note in top margin</h2>
+
+      <table class="paper college-ruled">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
             <div class="text handwriting">
-              <span class="hide">"</span>Text on college-ruled paper with top margin, title, and pen markings.<span class="hide">"</span><br>
-              <span class="hide">More hidden descriptive text. "</span><span class="text handwriting red-marker">Felt pen markings.</span><span class="hide">"</span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <span class="text top-margin-note handwriting">Lorem ipsum dolor sit amet...</span>
             </div>
           </td>
         </tr>
       </table>
+
+      <h1>Notepad paper</h1>
+
+      <h2>Basic</h2>
 
       <table class="paper notepad">
         <tr>
           <td>
-            <div class="headroom">
-              <p class="text handwriting title">Title text</p>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Title</h2>
+
+      <table class="paper notepad">
+        <tr>
+          <td>
+            <div class="text title handwriting">Title text</div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Top margin</h2>
+
+      <table class="paper notepad">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Top margin and title</h2>
+
+      <table class="paper notepad">
+        <tr>
+          <td>
+            <div class="top-margin">
+              <p class="text title handwriting">Title text</p>
             </div>
-            <div class="text handwriting">Text on notepad paper with top margin and title.</div>
+            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Note in top margin</h2>
+
+      <table class="paper notepad">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <span class="text top-margin-note handwriting">Lorem ipsum dolor sit amet...</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h1>Sticky note</h1>
+
+      <h2>Basic</h2>
+
+      <table class="paper sticky-note">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Vivid colors</h2>
+
+      <h3>Orange</h3>
+
+      <table class="paper sticky-note orange">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Yellow</h3>
+
+      <table class="paper sticky-note yellow">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Green</h3>
+
+      <table class="paper sticky-note green">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Blue</h3>
+
+      <table class="paper sticky-note blue">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Indigo</h3>
+
+      <table class="paper sticky-note indigo">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Purple</h3>
+
+      <table class="paper sticky-note purple">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Pink</h3>
+
+      <table class="paper sticky-note pink">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Salmon</h3>
+
+      <table class="paper sticky-note salmon">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Pastel colors</h2>
+
+      <h3>Orange</h3>
+
+      <table class="paper sticky-note pastel orange">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Yellow</h3>
+
+      <table class="paper sticky-note pastel yellow">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Green</h3>
+
+      <table class="paper sticky-note pastel green">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Blue</h3>
+
+      <table class="paper sticky-note pastel blue">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Indigo</h3>
+
+      <table class="paper sticky-note pastel indigo">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Purple</h3>
+
+      <table class="paper sticky-note pastel purple">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Pink</h3>
+
+      <table class="paper sticky-note pastel pink">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Salmon</h3>
+
+      <table class="paper sticky-note pastel salmon">
+        <tr>
+          <td>
+            <div class="text handwriting">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
           </td>
         </tr>
       </table>
