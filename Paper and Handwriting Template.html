@@ -14,12 +14,12 @@
 
       /* Base styling for all paper */
       #workskin .paper {
-        background: #ffffff;
+        background-color: #ffffff;
       }
 
       /* College-ruled paper */
       #workskin .paper.college-ruled {
-        background: linear-gradient(to bottom,#ffffff 24px,#00b0d7 1px);
+        background-image: linear-gradient(to bottom, transparent 24px, #00b0d7 1px);
         background-size: 100% 25px;
       }
 
@@ -30,46 +30,47 @@
 
       /* Notepad paper */
       #workskin .paper.notepad {
-        background: linear-gradient(to bottom,#ffffff 24px,#b9b9b9 1px);
+        background-image: linear-gradient(to bottom, transparent 24px, #b9b9b9 1px);
         background-size: 100% 25px;
       }
 
       /* Paper colors */
-      #workskin .paper.black { background: #383838; }
-      #workskin .paper.blue { background: #56d2e2; }
-      #workskin .paper.blue.pastel { background: #b7f5fd; }
-      #workskin .paper.dgrey { background: #686868; }
-      #workskin .paper.green { background: #3bc241; }
-      #workskin .paper.green.pastel { background: #b0f7b3; }
-      #workskin .paper.indigo { background: #2aaddc; }
-      #workskin .paper.indigo.pastel { background: #a1e6ff; }
-      #workskin .paper.lgrey { background: #c0c0c0; }
-      #workskin .paper.lime { background: #a6d740; }
-      #workskin .paper.lime.pastel { background: #dcfa9a; }
-      #workskin .paper.orange { background: #f6c02c; }
-      #workskin .paper.orange.pastel { background: #ffde83; }
-      #workskin .paper.pink { background: #ff6c9d; }
-      #workskin .paper.pink.pastel { background: #ffc3d7; }
-      #workskin .paper.purple { background: #bf80c6; }
-      #workskin .paper.purple.pastel { background: #e4b8e9; }
-      #workskin .paper.red { background: #df7b7b; }
-      #workskin .paper.red.pastel { background: #ffbfbf; }
-      #workskin .paper.salmon { background: #f9adb2; }
-      #workskin .paper.salmon.pastel { background: #ffdadb; }
-      #workskin .paper.teal { background: #20cfa3; }
-      #workskin .paper.teal.pastel { background: #92f1da; }
-      #workskin .paper.yellow { background: #ebe343; }
-      #workskin .paper.yellow.pastel { background: #fffa98; }
+      #workskin .paper.black { background-color: #383838; }
+      #workskin .paper.blue { background-color: #56d2e2; }
+      #workskin .paper.blue.pastel { background-color: #b7f5fd; }
+      #workskin .paper.dark-grey { background-color: #686868; }
+      #workskin .paper.green { background-color: #3bc241; }
+      #workskin .paper.green.pastel { background-color: #b0f7b3; }
+      #workskin .paper.indigo { background-color: #2aaddc; }
+      #workskin .paper.indigo.pastel { background-color: #a1e6ff; }
+      #workskin .paper.light-grey { background-color: #c0c0c0; }
+      #workskin .paper.lime { background-color: #a6d740; }
+      #workskin .paper.lime.pastel { background-color: #dcfa9a; }
+      #workskin .paper.orange { background-color: #f6c02c; }
+      #workskin .paper.orange.pastel { background-color: #ffde83; }
+      #workskin .paper.pink { background-color: #ff6c9d; }
+      #workskin .paper.pink.pastel { background-color: #ffc3d7; }
+      #workskin .paper.purple { background-color: #bf80c6; }
+      #workskin .paper.purple.pastel { background-color: #e4b8e9; }
+      #workskin .paper.red { background-color: #df7b7b; }
+      #workskin .paper.red.pastel { background-color: #ffbfbf; }
+      #workskin .paper.salmon { background-color: #f9adb2; }
+      #workskin .paper.salmon.pastel { background-color: #ffdadb; }
+      #workskin .paper.teal { background-color: #20cfa3; }
+      #workskin .paper.teal.pastel { background-color: #92f1da; }
+      #workskin .paper.yellow { background-color: #ebe343; }
+      #workskin .paper.yellow.pastel { background-color: #fffa98; }
+      #workskin .paper.white { background-color: #ffffff; }
 
       /* Text colors */
       #workskin .paper .text.black { color: #000000; }
       #workskin .paper .text.blue { color: #00a0df; }
       #workskin .paper .text.brown { color: #8b5814; }
       #workskin .paper .text.cyan { color: #00e3eb; }
-      #workskin .paper .text.dgrey { color: #666666; }
+      #workskin .paper .text.dark-grey { color: #666666; }
       #workskin .paper .text.green { color: #07b102; }
       #workskin .paper .text.indigo { color: #0400ff; }
-      #workskin .paper .text.lgrey { color: #a3a3a3; }
+      #workskin .paper .text.light-grey { color: #a3a3a3; }
       #workskin .paper .text.lime { color: #94e400; }
       #workskin .paper .text.magenta { color: #ff00ff; }
       #workskin .paper .text.orange { color: #ff7300; }
@@ -79,10 +80,9 @@
       #workskin .paper .text.tan { color: #dab588; }
       #workskin .paper .text.teal { color: #00d394; }
       #workskin .paper .text.yellow { color: #ddc700; }
-      #workskin .paper .text.white { color: #d0d0d0; }
+      #workskin .paper .text.white { color: #d8d8d8; }
 
       /* 1 - /Colors */
-
       /* 2 - Layout */
 
       /* Hide an element when work skin is enabled */
@@ -108,48 +108,6 @@
       #workskin .paper tr:hover,
       #workskin .paper td:hover {
         background: none;
-      }
-
-      /* Blank top-margin space over top of page, covers any existing styling */
-      #workskin .paper .top-margin {
-        height: 80px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-      }
-
-      /* Extra spacing for text directly following a top-margin element */
-      #workskin .paper .top-margin + .text,
-      #workskin .paper.college-ruled .top-margin + .text,
-      #workskin .paper.notepad .top-margin + .text {
-        margin-top: 95px;
-      }
-
-      /* Draw over top of top margin for lined paper types */
-      #workskin .paper.college-ruled .top-margin,
-      #workskin .paper.notepad .top-margin {
-        background: #ffffff;
-        background-size: 100%;
-      }
-
-      /* Left-side margin line for college-ruled paper */
-      #workskin .paper.college-ruled::before {
-        content: '';
-        display: block;
-        height: 100%;
-        left: 10%;
-        position: absolute;
-        top: 0;
-        width: 1px;
-        z-index: 1;
-      }
-
-      /* Title text on lined paper */
-      #workskin .paper.college-ruled .text.title,
-      #workskin .paper.notepad .text.title {
-        margin-top: 0;
       }
 
       /* Component slants */
@@ -206,6 +164,97 @@
         width: fit-content;
       }
 
+      /* Default styling for text on paper */
+      #workskin .paper .text {
+        font-family: "Calibri", "Arial", sans-serif;
+        margin-bottom: 5px;
+        margin-left: 2.5%;
+      }
+
+      /* Text sizes */
+      #workskin .paper .text { font-size: 17px; }
+      #workskin .paper .text.big { font-size: 1.58em; }
+      #workskin .paper .text.huge { font-size: 1.87em; }
+      #workskin .paper .text.small { font-size: 1.1em; }
+      #workskin .paper .text.tiny { font-size: 0.9em; }
+
+      /* Styling for handwriting text on paper */
+      #workskin .paper .text.handwriting {
+        font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
+      }
+
+      /* Title placed in top margin */
+      #workskin .paper .text.title {
+        font-weight: bold;
+        line-height: 15px;
+        margin-bottom: 10px;
+        margin-left: 8%;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      /* Scrawled notes in top margin */
+      #workskin .paper .text.top-margin-note {
+        font-size: 1.4em;
+        font-weight: bold;
+        line-height: 20px;
+        position: absolute;
+        left: 10px;
+        top: 30px;
+        z-index: 2;
+      }
+
+      /* Blank top-margin space over top of page, covers any existing styling */
+      #workskin .paper .top-margin {
+        background-color: inherit;
+        background-image: none;
+        background-repeat: no-repeat;
+        height: 80px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      /* Title placed in top margin */
+      #workskin .paper .top-margin .text.title {
+        margin-top: 76px;
+      }
+
+      /* Extra spacing for text directly following a top-margin element */
+      #workskin .paper .top-margin + .text,
+      #workskin .paper.college-ruled .top-margin + .text,
+      #workskin .paper.notepad .top-margin + .text {
+        margin-top: 95px;
+      }
+
+      /* Left-side margin line for college-ruled paper */
+      #workskin .paper.college-ruled::before {
+        content: '';
+        display: block;
+        height: 100%;
+        left: 10%;
+        position: absolute;
+        top: 0;
+        width: 1px;
+        z-index: 2;
+      }
+
+      /* Styling for text on lined paper */
+      #workskin .paper.college-ruled .text,
+      #workskin .paper.notepad .text {
+        line-height: 25px;
+        margin-top: -5px;
+      }
+
+      /* Title on lined paper */
+      #workskin .paper.college-ruled .text.title,
+      #workskin .paper.notepad .text.title {
+        margin-top: 0;
+      }
+
       /* Margin compensation for slanted paper */
       #workskin .paper.slant-left,
       #workskin .paper.slant-right {
@@ -237,58 +286,6 @@
         -moz-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
         -o-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
         -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-      }
-
-      /* Default styling for text on paper */
-      #workskin .paper .text {
-        font-family: "Calibri", "Arial", sans-serif;
-        margin-bottom: 5px;
-        margin-left: 2.5%;
-      }
-
-      /* Styling for text on lined paper */
-      #workskin .paper.college-ruled .text,
-      #workskin .paper.notepad .text {
-        line-height: 25px;
-        margin-top: -5px;
-      }
-
-      /* Text sizes */
-      #workskin .paper .text { font-size: 15px; }
-      #workskin .paper .text.big { font-size: 1.58em; }
-      #workskin .paper .text.huge { font-size: 2em; }
-      #workskin .paper .text.small { font-size: 0.87em; }
-      #workskin .paper .text.tiny { font-size: 0.67em; }
-
-      /* Styling for handwriting text on paper */
-      #workskin .paper .text.handwriting {
-        font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
-      }
-
-      /* Title text placed in top margin */
-      #workskin .paper .text.title {
-        font-size: 15px;
-        font-weight: bold;
-        line-height: 15px;
-        margin-bottom: 10px;
-        margin-left: 8%;
-        padding-left: 0;
-        text-align: center;
-      }
-
-      /* Scrawled notes in top margin */
-      #workskin .paper .text.top-margin-note {
-        font-size: 25px;
-        font-weight: bold;
-        line-height: 20px;
-        position: absolute;
-        left: 10px;
-        top: 30px;
-      }
-
-      /* Title text placed in top margin */
-      #workskin .paper .top-margin .text.title {
-        margin-top: 76px;
       }
 
       /* PRIORITY OVERRIDE RULES */
@@ -336,7 +333,8 @@
         <tr>
           <td>
             <br />
-            <div class="text slant-left-hard">Slanted text on slanted paper.</div>
+            <div class="text slant-right-hard">Slanted text on slanted paper.</div>
+            <br />
           </td>
         </tr>
       </table>
@@ -344,29 +342,37 @@
       <table class="paper">
         <tr>
           <td>
-            <div class="text red">Red text.</div>
-            <div class="text orange">Orange text.</div>
-            <div class="text yellow">Yellow text.</div>
-            <div class="text lime">Lime text.</div>
-            <div class="text green">Green text.</div>
-            <div class="text teal">Teal text.</div>
-            <div class="text cyan">Cyan text.</div>
-            <div class="text blue">Blue text.</div>
-            <div class="text indigo">Indigo text.</div>
-            <div class="text purple">Purple text.</div>
-            <div class="text pink">Pink text.</div>
-            <div class="text magenta">Magenta text.</div>
-            <div class="text brown">Brown text.</div>
-            <div class="text tan">Tan text.</div>
-            <div class="text black">Black text.</div>
-            <div class="text dgrey">Dark grey text.</div>
-            <div class="text lgrey">Light grey text.</div>
-            <div class="text white">White text.</div>
+            <div class="red text">Red text.</div>
+            <div class="orange text">Orange text.</div>
+            <div class="yellow text">Yellow text.</div>
+            <div class="lime text">Lime text.</div>
+            <div class="green text">Green text.</div>
+            <div class="teal text">Teal text.</div>
+            <div class="cyan text">Cyan text.</div>
+            <div class="blue text">Blue text.</div>
+            <div class="indigo text">Indigo text.</div>
+            <div class="purple text">Purple text.</div>
+            <div class="pink text">Pink text.</div>
+            <div class="magenta text">Magenta text.</div>
+            <div class="brown text">Brown text.</div>
+            <div class="tan text">Tan text.</div>
+            <div class="black text">Black text.</div>
+            <div class="dark-grey text">Dark grey text.</div>
+            <div class="light-grey text">Light grey text.</div>
+            <div class="white text">White text.</div>
           </td>
         </tr>
       </table>
 
-      <table class="paper lgrey">
+      <table class="white paper">
+        <tr>
+          <td>
+            <div class="text">White paper.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="light-grey paper">
         <tr>
           <td>
             <div class="text">Light grey paper.</div>
@@ -374,7 +380,7 @@
         </tr>
       </table>
 
-      <table class="paper dgrey">
+      <table class="dark-grey paper">
         <tr>
           <td>
             <div class="text white">Dark grey paper.</div>
@@ -382,7 +388,7 @@
         </tr>
       </table>
 
-      <table class="paper black">
+      <table class="black paper">
         <tr>
           <td>
             <div class="text white">Black paper.</div>
@@ -390,7 +396,7 @@
         </tr>
       </table>
 
-      <table class="paper red">
+      <table class="red paper">
         <tr>
           <td>
             <div class="text">Red paper.</div>
@@ -398,7 +404,7 @@
         </tr>
       </table>
 
-      <table class="paper orange">
+      <table class="orange paper">
         <tr>
           <td>
             <div class="text">Orange paper.</div>
@@ -406,7 +412,7 @@
         </tr>
       </table>
 
-      <table class="paper yellow">
+      <table class="yellow paper">
         <tr>
           <td>
             <div class="text">Yellow paper.</div>
@@ -414,7 +420,7 @@
         </tr>
       </table>
 
-      <table class="paper lime">
+      <table class="lime paper">
         <tr>
           <td>
             <div class="text">Lime paper.</div>
@@ -422,7 +428,7 @@
         </tr>
       </table>
 
-      <table class="paper green">
+      <table class="green paper">
         <tr>
           <td>
             <div class="text">Green paper.</div>
@@ -430,7 +436,7 @@
         </tr>
       </table>
 
-      <table class="paper teal">
+      <table class="teal paper">
         <tr>
           <td>
             <div class="text">Teal paper.</div>
@@ -438,7 +444,7 @@
         </tr>
       </table>
 
-      <table class="paper blue">
+      <table class="blue paper">
         <tr>
           <td>
             <div class="text">Blue paper.</div>
@@ -446,7 +452,7 @@
         </tr>
       </table>
 
-      <table class="paper indigo">
+      <table class="indigo paper">
         <tr>
           <td>
             <div class="text">Indigo paper.</div>
@@ -454,7 +460,7 @@
         </tr>
       </table>
 
-      <table class="paper purple">
+      <table class="purple paper">
         <tr>
           <td>
             <div class="text">Purple paper.</div>
@@ -462,7 +468,7 @@
         </tr>
       </table>
 
-      <table class="paper pink">
+      <table class="pink paper">
         <tr>
           <td>
             <div class="text">Pink paper.</div>
@@ -470,7 +476,7 @@
         </tr>
       </table>
 
-      <table class="paper salmon">
+      <table class="salmon paper">
         <tr>
           <td>
             <div class="text">Salmon paper.</div>
@@ -478,7 +484,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel red">
+      <table class="pastel red paper">
         <tr>
           <td>
             <div class="text">Pastel red paper.</div>
@@ -486,7 +492,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel orange">
+      <table class="pastel orange paper">
         <tr>
           <td>
             <div class="text">Pastel orange paper.</div>
@@ -494,7 +500,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel yellow">
+      <table class="pastel yellow paper">
         <tr>
           <td>
             <div class="text">Pastel yellow paper.</div>
@@ -502,7 +508,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel lime">
+      <table class="pastel lime paper">
         <tr>
           <td>
             <div class="text">Pastel lime paper.</div>
@@ -510,7 +516,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel green">
+      <table class="pastel green paper">
         <tr>
           <td>
             <div class="text">Pastel green paper.</div>
@@ -518,7 +524,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel teal">
+      <table class="pastel teal paper">
         <tr>
           <td>
             <div class="text">Pastel teal paper.</div>
@@ -526,7 +532,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel blue">
+      <table class="pastel blue paper">
         <tr>
           <td>
             <div class="text">Pastel blue paper.</div>
@@ -534,7 +540,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel indigo">
+      <table class="pastel indigo paper">
         <tr>
           <td>
             <div class="text">Pastel indigo paper.</div>
@@ -542,7 +548,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel purple">
+      <table class="pastel purple paper">
         <tr>
           <td>
             <div class="text">Pastel purple paper.</div>
@@ -550,7 +556,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel pink">
+      <table class="pastel pink paper">
         <tr>
           <td>
             <div class="text">Pastel pink paper.</div>
@@ -558,7 +564,7 @@
         </tr>
       </table>
 
-      <table class="paper pastel salmon">
+      <table class="pastel salmon paper">
         <tr>
           <td>
             <div class="text">Pastel salmon paper.</div>
@@ -722,7 +728,7 @@
       <table class="notepad paper">
         <tr>
           <td>
-            <div class="title handwriting text">Title text</div>
+            <div class="title handwriting text">Title</div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -745,7 +751,7 @@
         <tr>
           <td>
             <div class="top-margin">
-              <p class="title handwriting text">Title text</p>
+              <p class="title handwriting text">Title</p>
             </div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
