@@ -19,13 +19,21 @@
 
       /* College-ruled paper */
       #workskin .paper.college-ruled {
-        background-image: linear-gradient(to bottom, transparent 24px, #00b0d7 1px);
-        background-size: 100% 25px;
+        background-image:
+          linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
+          linear-gradient(to right,
+            transparent 10%,
+            #db4034 10%,
+            #db4034 calc(10% + 1px),
+            transparent calc(10% + 1px));
+        background-size: 100% 25px, 100% 100%;
+        background-repeat: repeat, no-repeat;
       }
 
       /* Left-side margin line for college-ruled paper */
       #workskin .paper.college-ruled::before {
-        background: #db4034;
+        background-image: linear-gradient(to bottom, #db4034 0%, #ff8a80 100%);
+        background-repeat: no-repeat;
       }
 
       /* Notepad paper */
@@ -111,24 +119,33 @@
       }
 
       /* Blank page-header space over top of page, covers any existing styling */
-      #workskin .paper .page-header {
+      #workskin .paper.page-header::before {
         background-color: inherit;
         background-image: none;
-        background-repeat: no-repeat;
+        background-position: left top;
+        box-sizing: border-box;
+        content: '';
+        display: block;
         height: 80px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
         width: 100%;
-        z-index: 1;
       }
 
-      /* Extra spacing for text directly following a page-header element */
-      #workskin .paper .page-header + .text,
-      #workskin .paper.college-ruled .page-header + .text,
-      #workskin .paper.notepad .page-header + .text {
-        margin-top: 95px;
+      #workskin .paper.college-ruled.page-header::before {
+        background-color: inherit;
+        background-image:
+          linear-gradient(to right,
+            transparent 10%,
+            #db4034 10%,
+            #db4034 calc(10% + 1px),
+            transparent calc(10% + 1px));
+        background-position: left top;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        height: 80px;
+        width: 100%;
       }
 
       /* Component slants */
@@ -223,18 +240,6 @@
         margin-left: 8%;
         padding-left: 0;
         text-align: center;
-      }
-
-      /* Left-side margin line for college-ruled paper */
-      #workskin .paper.college-ruled::before {
-        content: '';
-        display: block;
-        height: 100%;
-        left: 10%;
-        position: absolute;
-        top: 0;
-        width: 1px;
-        z-index: 2;
       }
 
       /* Styling for text on lined paper */
@@ -597,12 +602,11 @@
         </tr>
       </table>
 
-      <h2>page header</h2>
+      <h2>Page header</h2>
 
-      <table class="paper">
+      <table class="paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -610,12 +614,10 @@
 
       <h2>Page header and title</h2>
 
-      <table class="paper">
+      <table class="paper page-header">
         <tr>
           <td>
-            <div class="page-header">
-              <div class="title text">Title</div>
-            </div>
+            <div class="title text">Title</div>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -623,10 +625,9 @@
 
       <h2>Note in page header</h2>
 
-      <table class="paper">
+      <table class="paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="page-header-note text">Lorem ipsum dolor sit amet...</span>
@@ -637,12 +638,10 @@
 
       <h2>Custom color</h2>
 
-      <table class="pastel yellow paper">
+      <table class="pastel yellow paper page-header">
         <tr>
           <td>
-            <div class="page-header">
-              <div class="title text">Title</div>
-            </div>
+            <div class="title text">Title</div>
             <div class="text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="page-header-note text">Lorem ipsum dolor sit amet...</span>
@@ -676,12 +675,11 @@
         </tr>
       </table>
 
-      <h2>page header</h2>
+      <h2>Page header</h2>
 
-      <table class="college-ruled paper">
+      <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -689,12 +687,10 @@
 
       <h2>Page header and title</h2>
 
-      <table class="college-ruled paper">
+      <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="page-header">
-              <p class="handwriting title text">Title</p>
-            </div>
+            <div class="handwriting title text">Title</div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -702,10 +698,9 @@
 
       <h2>Note in page header</h2>
 
-      <table class="college-ruled paper">
+      <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet...</span>
@@ -716,12 +711,10 @@
 
       <h2>Custom color</h2>
 
-      <table class="pastel yellow college-ruled paper">
+      <table class="pastel yellow college-ruled paper page-header">
         <tr>
           <td>
-            <div class="page-header">
-              <div class="handwriting title text">Title</div>
-            </div>
+            <div class="handwriting title text">Title</div>
             <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet...</span>
@@ -755,12 +748,11 @@
         </tr>
       </table>
 
-      <h2>page header</h2>
+      <h2>Page header</h2>
 
-      <table class="notepad paper">
+      <table class="notepad paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -771,9 +763,7 @@
       <table class="notepad paper">
         <tr>
           <td>
-            <div class="page-header">
-              <p class="handwriting title text">Title</p>
-            </div>
+            <div class="handwriting title text">Title</div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -781,10 +771,9 @@
 
       <h2>Note in page header</h2>
 
-      <table class="notepad paper">
+      <table class="notepad paper page-header">
         <tr>
           <td>
-            <div class="page-header"></div>
             <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet...</span>
@@ -795,12 +784,10 @@
 
       <h2>Custom color</h2>
 
-      <table class="pastel yellow notepad paper">
+      <table class="pastel yellow notepad paper page-header">
         <tr>
           <td>
-            <div class="page-header">
-              <div class="handwriting title text">Title</div>
-            </div>
+            <div class="handwriting title text">Title</div>
             <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet...</span>
