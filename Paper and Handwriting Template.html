@@ -10,6 +10,81 @@
       Expanded to more paper types, and modified to be more modular.
       */
 
+      /* 1 - Colors */
+
+      /* Base styling for all paper */
+      #workskin .paper {
+        background: #ffffff;
+      }
+
+      /* College-ruled paper */
+      #workskin .paper.college-ruled {
+        background: linear-gradient(to bottom,#ffffff 24px,#00b0d7 1px);
+        background-size: 100% 25px;
+      }
+
+      /* Left-side margin line for college-ruled paper */
+      #workskin .paper.college-ruled::before {
+        background: #db4034;
+      }
+
+      /* Notepad paper */
+      #workskin .paper.notepad {
+        background: linear-gradient(to bottom,#ffffff 24px,#b9b9b9 1px);
+        background-size: 100% 25px;
+      }
+
+      /* Paper colors */
+      #workskin .paper.black { background: #383838; }
+      #workskin .paper.blue { background: #56d2e2; }
+      #workskin .paper.blue.pastel { background: #b7f5fd; }
+      #workskin .paper.dgrey { background: #686868; }
+      #workskin .paper.green { background: #3bc241; }
+      #workskin .paper.green.pastel { background: #b0f7b3; }
+      #workskin .paper.indigo { background: #2aaddc; }
+      #workskin .paper.indigo.pastel { background: #a1e6ff; }
+      #workskin .paper.lgrey { background: #c0c0c0; }
+      #workskin .paper.lime { background: #a6d740; }
+      #workskin .paper.lime.pastel { background: #dcfa9a; }
+      #workskin .paper.orange { background: #f6c02c; }
+      #workskin .paper.orange.pastel { background: #ffde83; }
+      #workskin .paper.pink { background: #ff6c9d; }
+      #workskin .paper.pink.pastel { background: #ffc3d7; }
+      #workskin .paper.purple { background: #bf80c6; }
+      #workskin .paper.purple.pastel { background: #e4b8e9; }
+      #workskin .paper.red { background: #df7b7b; }
+      #workskin .paper.red.pastel { background: #ffbfbf; }
+      #workskin .paper.salmon { background: #f9adb2; }
+      #workskin .paper.salmon.pastel { background: #ffdadb; }
+      #workskin .paper.teal { background: #20cfa3; }
+      #workskin .paper.teal.pastel { background: #92f1da; }
+      #workskin .paper.yellow { background: #ebe343; }
+      #workskin .paper.yellow.pastel { background: #fffa98; }
+
+      /* Text colors */
+      #workskin .paper .text.black { color: #000000; }
+      #workskin .paper .text.blue { color: #00a0df; }
+      #workskin .paper .text.brown { color: #8b5814; }
+      #workskin .paper .text.cyan { color: #00e3eb; }
+      #workskin .paper .text.dgrey { color: #666666; }
+      #workskin .paper .text.green { color: #07b102; }
+      #workskin .paper .text.indigo { color: #0400ff; }
+      #workskin .paper .text.lgrey { color: #a3a3a3; }
+      #workskin .paper .text.lime { color: #94e400; }
+      #workskin .paper .text.magenta { color: #ff00ff; }
+      #workskin .paper .text.orange { color: #ff7300; }
+      #workskin .paper .text.pink { color: #ff00c8; }
+      #workskin .paper .text.purple { color: #ae00ff; }
+      #workskin .paper .text.red { color: #ff0000; }
+      #workskin .paper .text.tan { color: #dab588; }
+      #workskin .paper .text.teal { color: #00d394; }
+      #workskin .paper .text.yellow { color: #ddc700; }
+      #workskin .paper .text.white { color: #d0d0d0; }
+
+      /* 1 - /Colors */
+
+      /* 2 - Layout */
+
       /* Hide an element when work skin is enabled */
       #workskin .hide {
         display: none;
@@ -37,9 +112,6 @@
 
       /* Blank top-margin space over top of page, covers any existing styling */
       #workskin .paper .top-margin {
-        background: #ffffff;
-        background-size: 100%;
-        border-radius: 5px;
         height: 80px;
         left: 0;
         position: absolute;
@@ -49,19 +121,21 @@
       }
 
       /* Extra spacing for text directly following a top-margin element */
-      #workskin .paper .top-margin + .text {
+      #workskin .paper .top-margin + .text,
+      #workskin .paper.college-ruled .top-margin + .text,
+      #workskin .paper.notepad .top-margin + .text {
         margin-top: 95px;
       }
 
-      /* Additional styling for college-ruled paper */
-      #workskin .paper.college-ruled {
-        background: linear-gradient(to bottom,#FFFFFF 24px,#00b0d7 1px);
-        background-size: 100% 25px;
+      /* Draw over top of top margin for lined paper types */
+      #workskin .paper.college-ruled .top-margin,
+      #workskin .paper.notepad .top-margin {
+        background: #ffffff;
+        background-size: 100%;
       }
 
       /* Left-side margin line for college-ruled paper */
       #workskin .paper.college-ruled::before {
-        background: #db4034;
         content: '';
         display: block;
         height: 100%;
@@ -76,12 +150,6 @@
       #workskin .paper.college-ruled .text.title,
       #workskin .paper.notepad .text.title {
         margin-top: 0;
-      }
-
-      /* Base notepad paper styling */
-      #workskin .paper.notepad {
-        background: linear-gradient(to bottom,#FFFFFF 24px,#b9b9b9 1px);
-        background-size: 100% 25px;
       }
 
       /* Component slants */
@@ -157,7 +225,6 @@
 
       /* Base sticky note paper styling */
       #workskin .paper.sticky-note {
-        background: #ffffff;
         display: block;
         width: 20em;
         height: 20em;
@@ -172,65 +239,28 @@
         -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
       }
 
-      /* Paper colors */
-      #workskin .paper.black { background: #383838; }
-      #workskin .paper.blue { background: #56d2e2; }
-      #workskin .paper.blue.pastel { background: #b7f5fd; }
-      #workskin .paper.dgrey { background: #686868; }
-      #workskin .paper.green { background: #3bc241; }
-      #workskin .paper.green.pastel { background: #b0f7b3; }
-      #workskin .paper.indigo { background: #2aaddc; }
-      #workskin .paper.indigo.pastel { background: #a1e6ff; }
-      #workskin .paper.lgrey { background: #c0c0c0; }
-      #workskin .paper.lime { background: #a6d740; }
-      #workskin .paper.lime.pastel { background: #dcfa9a; }
-      #workskin .paper.orange { background: #f6c02c; }
-      #workskin .paper.orange.pastel { background: #ffde83; }
-      #workskin .paper.pink { background: #ff6c9d; }
-      #workskin .paper.pink.pastel { background: #ffc3d7; }
-      #workskin .paper.purple { background: #bf80c6; }
-      #workskin .paper.purple.pastel { background: #e4b8e9; }
-      #workskin .paper.red { background: #df7b7b; }
-      #workskin .paper.red.pastel { background: #ffbfbf; }
-      #workskin .paper.salmon { background: #f9adb2; }
-      #workskin .paper.salmon.pastel { background: #ffdadb; }
-      #workskin .paper.teal { background: #20cfa3; }
-      #workskin .paper.teal.pastel { background: #92f1da; }
-      #workskin .paper.yellow { background: #ebe343; }
-      #workskin .paper.yellow.pastel { background: #fffa98; }
-
       /* Default styling for text on paper */
       #workskin .paper .text {
-        color: #000000;
         font-family: "Calibri", "Arial", sans-serif;
-        font-size: 15px;
-        line-height: 25px;
         margin-bottom: 5px;
         margin-left: 2.5%;
+      }
+
+      /* Styling for text on lined paper */
+      #workskin .paper.college-ruled .text,
+      #workskin .paper.notepad .text {
+        line-height: 25px;
         margin-top: -5px;
       }
 
-      /* Text colors */
-      #workskin .paper .text.black { color: #000000; }
-      #workskin .paper .text.blue { color: #00a0df; }
-      #workskin .paper .text.brown { color: #8b5814; }
-      #workskin .paper .text.cyan { color: #00e3eb; }
-      #workskin .paper .text.dgrey { color: #666666; }
-      #workskin .paper .text.green { color: #07b102; }
-      #workskin .paper .text.indigo { color: #0400ff; }
-      #workskin .paper .text.lgrey { color: #a3a3a3; }
-      #workskin .paper .text.lime { color: #94e400; }
-      #workskin .paper .text.magenta { color: #ff00ff; }
-      #workskin .paper .text.orange { color: #ff7300; }
-      #workskin .paper .text.pink { color: #ff00c8; }
-      #workskin .paper .text.purple { color: #ae00ff; }
-      #workskin .paper .text.red { color: #ff0000; }
-      #workskin .paper .text.tan { color: #dab588; }
-      #workskin .paper .text.teal { color: #00d394; }
-      #workskin .paper .text.yellow { color: #ddc700; }
-      #workskin .paper .text.white { color: #d0d0d0; }
+      /* Text sizes */
+      #workskin .paper .text { font-size: 15px; }
+      #workskin .paper .text.big { font-size: 1.58em; }
+      #workskin .paper .text.huge { font-size: 2em; }
+      #workskin .paper .text.small { font-size: 0.87em; }
+      #workskin .paper .text.tiny { font-size: 0.67em; }
 
-      /* Styling for handwritten text on paper */
+      /* Styling for handwriting text on paper */
       #workskin .paper .text.handwriting {
         font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
       }
@@ -242,7 +272,6 @@
         line-height: 15px;
         margin-bottom: 10px;
         margin-left: 8%;
-        margin-top: 10px;
         padding-left: 0;
         text-align: center;
       }
@@ -270,6 +299,8 @@
         margin-left: 11%;
       }
 
+      /* 2 - /Layout */
+
     </style>
   </head>
   <body>
@@ -282,8 +313,13 @@
           <td>
             <br />
             <div class="text">Printed text.</div>
-            <div class="text handwriting">Handwriting.</div>
+            <div class="handwriting text">Handwriting.</div>
             <div class="text slant-right-hard">Slanted text.</div>
+            <div class="text tiny">Tiny text.</div>
+            <div class="text small">Small text.</div>
+            <div class="text">Normal text.</div>
+            <div class="text big">Big text.</div>
+            <div class="text huge">Huge text.</div>
           </td>
         </tr>
       </table>
@@ -537,7 +573,9 @@
       <table class="paper">
         <tr>
           <td>
+            <div class="tiny text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="huge text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
@@ -547,7 +585,7 @@
       <table class="paper">
         <tr>
           <td>
-            <div class="text title">Title</div>
+            <div class="title text">Title</div>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -570,8 +608,19 @@
         <tr>
           <td>
             <div class="top-margin">
-              <div class="text title">Title</div>
+              <div class="title text">Title</div>
             </div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Top margin with custom color</h2>
+
+      <table class="pastel blue paper">
+        <tr>
+          <td>
+            <div class="top-margin"></div>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -595,58 +644,60 @@
 
       <h2>Basic</h2>
 
-      <table class="paper college-ruled">
+      <table class="college-ruled paper">
         <tr>
           <td>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="text tiny handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="text huge handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Title</h2>
 
-      <table class="paper college-ruled">
+      <table class="college-ruled paper">
         <tr>
           <td>
-            <div class="text title">Title</div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="title text">Title</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Top margin</h2>
 
-      <table class="paper college-ruled">
+      <table class="college-ruled paper">
         <tr>
           <td>
             <div class="top-margin"></div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Top margin and title</h2>
 
-      <table class="paper college-ruled">
+      <table class="college-ruled paper">
         <tr>
           <td>
             <div class="top-margin">
-              <p class="text title handwriting">Title</p>
+              <p class="title handwriting text">Title</p>
             </div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Note in top margin</h2>
 
-      <table class="paper college-ruled">
+      <table class="college-ruled paper">
         <tr>
           <td>
             <div class="top-margin"></div>
-            <div class="text handwriting">
+            <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="text top-margin-note handwriting">Lorem ipsum dolor sit amet...</span>
+              <span class="top-margin-note handwriting text">Lorem ipsum dolor sit amet...</span>
             </div>
           </td>
         </tr>
@@ -656,58 +707,60 @@
 
       <h2>Basic</h2>
 
-      <table class="paper notepad">
+      <table class="notepad paper">
         <tr>
           <td>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="tiny handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="huge handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Title</h2>
 
-      <table class="paper notepad">
+      <table class="notepad paper">
         <tr>
           <td>
-            <div class="text title handwriting">Title text</div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="title handwriting text">Title text</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Top margin</h2>
 
-      <table class="paper notepad">
+      <table class="notepad paper">
         <tr>
           <td>
             <div class="top-margin"></div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Top margin and title</h2>
 
-      <table class="paper notepad">
+      <table class="notepad paper">
         <tr>
           <td>
             <div class="top-margin">
-              <p class="text title handwriting">Title text</p>
+              <p class="title handwriting text">Title text</p>
             </div>
-            <div class="text handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
       </table>
 
       <h2>Note in top margin</h2>
 
-      <table class="paper notepad">
+      <table class="notepad paper">
         <tr>
           <td>
             <div class="top-margin"></div>
-            <div class="text handwriting">
+            <div class="handwriting text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="text top-margin-note handwriting">Lorem ipsum dolor sit amet...</span>
+              <span class="top-margin-note handwriting text">Lorem ipsum dolor sit amet...</span>
             </div>
           </td>
         </tr>
@@ -715,11 +768,31 @@
 
       <h1>Sticky note</h1>
 
-      <table class="paper sticky-note">
+      <table class="sticky-note paper">
         <tr>
           <td>
-            <div class="text handwriting">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div class="tiny handwriting text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="sticky-note paper">
+        <tr>
+          <td>
+            <div class="handwriting text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="sticky-note paper">
+        <tr>
+          <td>
+            <div class="huge handwriting text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
           </td>
         </tr>
