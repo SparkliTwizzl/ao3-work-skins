@@ -10,7 +10,9 @@
       Expanded to more paper types, and modified to be more modular.
       */
 
-      /* 1 - Colors */
+      /* 1 - Colors and sizes */
+
+      /* 1.1 - Colors */
 
       /* Base styling for all paper */
       #workskin .paper {
@@ -20,21 +22,27 @@
       /* College-ruled paper */
       #workskin .paper.college-ruled {
         background-image:
-          linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
+        linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
           linear-gradient(to right,
-            transparent 10%,
-            #db4034 10%,
-            #db4034 calc(10% + 1px),
-            transparent calc(10% + 1px));
-        background-size: 100% 25px, 100% 100%;
-        background-repeat: repeat, no-repeat;
-      }
-
-      /* Left-side margin line for college-ruled paper */
-      #workskin .paper.college-ruled::before {
-        background-image: linear-gradient(to bottom, #db4034 0%, #ff8a80 100%);
-        background-repeat: no-repeat;
-      }
+          transparent 10%,
+          #db4034 10%,
+          #db4034 calc(10% + 1px),
+          transparent calc(10% + 1px));
+          background-size: 100% 25px, 100% 100%;
+          background-repeat: repeat, no-repeat;
+        }
+        
+        #workskin .paper.college-ruled.page-header::before {
+          background-image:
+          linear-gradient(to right,
+          transparent 10%,
+          #db4034 10%,
+          #db4034 calc(10% + 1px),
+          transparent calc(10% + 1px));
+          background-position: left top;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
 
       /* Notepad paper */
       #workskin .paper.notepad {
@@ -90,7 +98,21 @@
       #workskin .paper .text.yellow { color: #ddc700; }
       #workskin .paper .text.white { color: #d8d8d8; }
 
-      /* 1 - /Colors */
+      /* 1.1 - /Colors */
+
+      /* 1.2 - Sizes */
+
+      /* Text sizes */
+      #workskin .paper .text { font-size: 17px; }
+      #workskin .paper .text.big { font-size: 1.58em; }
+      #workskin .paper .text.huge { font-size: 1.87em; }
+      #workskin .paper .text.small { font-size: 1.1em; }
+      #workskin .paper .text.tiny { font-size: 0.9em; }
+
+      /* 1.2 - /Sizes */
+
+      /* 1 - /Colors and sizes */
+
       /* 2 - Layout */
 
       /* Hide an element when work skin is enabled */
@@ -116,36 +138,6 @@
       #workskin .paper tr:hover,
       #workskin .paper td:hover {
         background: none;
-      }
-
-      /* Blank page-header space over top of page, covers any existing styling */
-      #workskin .paper.page-header::before {
-        background-color: inherit;
-        background-image: none;
-        background-position: left top;
-        box-sizing: border-box;
-        content: '';
-        display: block;
-        height: 80px;
-        width: 100%;
-      }
-
-      #workskin .paper.college-ruled.page-header::before {
-        background-color: inherit;
-        background-image:
-          linear-gradient(to right,
-            transparent 10%,
-            #db4034 10%,
-            #db4034 calc(10% + 1px),
-            transparent calc(10% + 1px));
-        background-position: left top;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        box-sizing: border-box;
-        content: '';
-        display: block;
-        height: 80px;
-        width: 100%;
       }
 
       /* Component slants */
@@ -207,14 +199,8 @@
         font-family: "Calibri", "Arial", sans-serif;
         margin-bottom: 5px;
         margin-left: 2.5%;
+        margin-right: 2.5%;
       }
-
-      /* Text sizes */
-      #workskin .paper .text { font-size: 17px; }
-      #workskin .paper .text.big { font-size: 1.58em; }
-      #workskin .paper .text.huge { font-size: 1.87em; }
-      #workskin .paper .text.small { font-size: 1.1em; }
-      #workskin .paper .text.tiny { font-size: 0.9em; }
 
       /* Styling for handwriting text on paper */
       #workskin .paper .text.handwriting {
@@ -235,9 +221,9 @@
       /* Page titles */
       #workskin .paper .text.title {
         font-weight: bold;
-        line-height: 15px;
-        margin-bottom: 10px;
-        margin-left: 8%;
+        line-height: 25px;
+        margin-bottom: 5px;
+        margin-top: -5px;
         padding-left: 0;
         text-align: center;
       }
@@ -249,10 +235,33 @@
         margin-top: -5px;
       }
 
-      /* Title on lined paper */
-      #workskin .paper.college-ruled .text.title,
-      #workskin .paper.notepad .text.title {
-        margin-top: 0;
+      /* Blank page-header space */
+      #workskin .paper.college-ruled.page-header::before {
+        background-repeat: no-repeat;
+      }
+      #workskin .paper.page-header {
+        position: relative;
+        padding-top: 75px;
+        box-sizing: border-box;
+      }
+      #workskin .paper.page-header > * {
+        position: relative;
+        z-index: 1;
+      }
+      #workskin .paper.page-header::before {
+        background-color: inherit;
+        content: '';
+        display: block;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+      #workskin .paper.page-header:not(.college-ruled)::before {
+        background-image: none;
       }
 
       /* Margin compensation for slanted paper */
@@ -291,9 +300,15 @@
       /* PRIORITY OVERRIDE RULES */
       /* Priority necessitates breaking sorting rules */
 
-      /* Title placed in page header */
-      #workskin .paper .page-header .text.title {
-        margin-top: 70px;
+      /* Text positioning fixes. */
+      #workskin .paper.page-header .text:not(.title):first-of-type {
+        margin-top: 17px;
+      }
+      #workskin .paper .text.title + .text {
+        margin-top: -6px;
+      }
+      #workskin .paper.page-header .text.title + .text {
+        margin-top: -8px;
       }
 
       /* Extra padding for text on papers with a left margin */
@@ -585,7 +600,21 @@
         <tr>
           <td>
             <div class="tiny text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper">
+        <tr>
+          <td>
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="paper">
+        <tr>
+          <td>
             <div class="huge text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -658,7 +687,21 @@
         <tr>
           <td>
             <div class="text tiny handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="college-ruled paper">
+        <tr>
+          <td>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="college-ruled paper">
+        <tr>
+          <td>
             <div class="text huge handwriting">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -669,7 +712,7 @@
       <table class="college-ruled paper">
         <tr>
           <td>
-            <div class="title text">Title</div>
+            <div class="handwriting title text">Title</div>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -731,7 +774,21 @@
         <tr>
           <td>
             <div class="tiny handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="notepad paper">
+        <tr>
+          <td>
             <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          </td>
+        </tr>
+      </table>
+
+      <table class="notepad paper">
+        <tr>
+          <td>
             <div class="huge handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </td>
         </tr>
@@ -760,7 +817,7 @@
 
       <h2>Page header and title</h2>
 
-      <table class="notepad paper">
+      <table class="notepad paper page-header">
         <tr>
           <td>
             <div class="handwriting title text">Title</div>
