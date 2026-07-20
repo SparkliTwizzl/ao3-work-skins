@@ -10,9 +10,9 @@
       Expanded to more paper types, and modified to be more modular.
       */
 
-      /* 1 - Colors and sizes */
-
-      /* 1.1 - Colors */
+      /*  1 - Colors and sizes */
+      /*  1.1 - Colors */
+      /*  1.1.1 - Paper types */
 
       /* Base styling for all paper */
       #workskin .paper {
@@ -22,27 +22,26 @@
       /* College-ruled paper */
       #workskin .paper.college-ruled {
         background-image:
-        linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
+          linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
           linear-gradient(to right,
           transparent 10%,
           #db4034 10%,
           #db4034 calc(10% + 1px),
           transparent calc(10% + 1px));
-          background-size: 100% 25px, 100% 100%;
-          background-repeat: repeat, no-repeat;
-        }
-        
-        #workskin .paper.college-ruled.page-header::before {
-          background-image:
+        background-size: 100% 25px, 100% 100%;
+        background-repeat: repeat, no-repeat;
+      }
+      #workskin .paper.college-ruled.page-header::before {
+        background-image:
           linear-gradient(to right,
           transparent 10%,
           #db4034 10%,
           #db4034 calc(10% + 1px),
           transparent calc(10% + 1px));
-          background-position: left top;
-          background-size: 100% 100%;
-          background-repeat: no-repeat;
-        }
+        background-position: left top;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
 
       /* Notepad paper */
       #workskin .paper.notepad {
@@ -50,7 +49,9 @@
         background-size: 100% 25px;
       }
 
-      /* Paper colors */
+      /* /1.1.1 - Paper types */
+      /*  1.1.2 - Paper colors */
+
       #workskin .paper.black { background-color: #383838; }
       #workskin .paper.blue { background-color: #56d2e2; }
       #workskin .paper.blue.pastel { background-color: #b7f5fd; }
@@ -78,7 +79,9 @@
       #workskin .paper.yellow.pastel { background-color: #fffa98; }
       #workskin .paper.white { background-color: #ffffff; }
 
-      /* Text colors */
+      /* /1.1.2 - Paper colors */
+      /*  1.1.3 - Text colors */
+
       #workskin .paper .text.black { color: #000000; }
       #workskin .paper .text.blue { color: #00a0df; }
       #workskin .paper .text.brown { color: #8b5814; }
@@ -98,27 +101,23 @@
       #workskin .paper .text.yellow { color: #ddc700; }
       #workskin .paper .text.white { color: #d8d8d8; }
 
-      /* 1.1 - /Colors */
+      /* /1.1.3 - Text colors */
+      /* /1.1 - Colors */
+      /*  1.2 - Sizes */
+      /*  1.2.1 - Text sizes */
 
-      /* 1.2 - Sizes */
-
-      /* Text sizes */
       #workskin .paper .text { font-size: 17px; }
-      #workskin .paper .text.big { font-size: 1.58em; }
-      #workskin .paper .text.huge { font-size: 1.87em; }
-      #workskin .paper .text.small { font-size: 1.1em; }
-      #workskin .paper .text.tiny { font-size: 0.9em; }
+      #workskin .paper .text.big { font-size: 1.3em; }
+      #workskin .paper .text.huge { font-size: 1.5em; }
+      #workskin .paper .text.small { font-size: 0.9em; }
+      #workskin .paper .text.tiny { font-size: 0.8em; }
 
-      /* 1.2 - /Sizes */
-
-      /* 1 - /Colors and sizes */
-
-      /* 2 - Layout */
-
-      /* Hide an element when work skin is enabled */
-      #workskin .hide {
-        display: none;
-      }
+      /* /1.2.1 - Text sizes */
+      /* /1.2 - Sizes */
+      /* /1 - Colors and sizes */
+      /*  2 - Layout */
+      /*  2.1 - Paper */
+      /*  2.1.2 - Paper type bases */
 
       /* Base styling for all paper */
       #workskin .paper {
@@ -139,6 +138,106 @@
       #workskin .paper td:hover {
         background: none;
       }
+
+      /* Styling for text on lined paper */
+      #workskin .paper.college-ruled .text,
+      #workskin .paper.notepad .text {
+        line-height: 25px;
+        margin-top: -5px;
+      }
+
+      /* Base sticky note paper styling */
+      #workskin .paper.sticky-note {
+        display: block;
+        width: 20em;
+        height: 20em;
+        padding: 1em;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -moz-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -o-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+      }
+
+      /* /2.1.2 - Paper type bases */
+      /*  2.1.3 - Paper components */
+
+      /* Blank page-header space */
+      #workskin .paper.college-ruled.page-header::before {
+        background-repeat: no-repeat;
+      }
+      #workskin .paper.page-header {
+        position: relative;
+        padding-top: 75px;
+        box-sizing: border-box;
+      }
+      #workskin .paper.page-header > * {
+        position: relative;
+        z-index: 1;
+      }
+      #workskin .paper.page-header::before {
+        background-color: inherit;
+        content: '';
+        display: block;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* /2.1.3 - Paper components */
+      /* /2.1 - Paper */
+      /*  2.2 - Text */
+      /*  2.2.1 - Text bases */
+
+      /* Default styling for text on paper */
+      #workskin .paper .text {
+        font-family: "Calibri", "Arial", sans-serif;
+        margin-bottom: 5px;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+      }
+
+      /* Style adjustments for handwriting text */
+      #workskin .paper .text.handwriting {
+        font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
+      }
+
+      /* Notes in page headers */
+      #workskin .paper .text.page-header-note {
+        font-size: 1.4em;
+        font-weight: bold;
+        line-height: 20px;
+        position: absolute;
+        left: 10px;
+        top: -75px;
+        z-index: 2;
+      }
+
+      /* Page titles */
+      #workskin .paper .text.title {
+        font-weight: bold;
+        line-height: 25px;
+        margin: 0 2.5% 5px;
+        text-align: center;
+      }
+      #workskin .paper.page-header:not(.college-ruled)::before {
+        background-image: none;
+      }
+      #workskin .paper.page-header .text:not(.title):first-of-type {
+        margin-top: 18px;
+      }
+
+      /* /2.2.1 - Text bases */
+      /* /2.2 - Text */
+      /*  2.3 - Style adjustments */
+      /*  2.3.1 - Slants */
 
       /* Component slants */
       #workskin .paper .slant-left,
@@ -184,7 +283,8 @@
         -webkit-transform: rotate(-2deg);
       }
 
-      /* Width compensation for slanted paper contents (Necessary to prevent visual artifacts for narrow element contents) */
+      /* Width compensation for slanted paper contents */
+      /* Necessary to prevent visual artifacts for elements with narrow contents */
       #workskin .paper .slant-left,
       #workskin .paper .slant-right,
       #workskin .paper .slant-left-hard,
@@ -192,76 +292,6 @@
       #workskin .paper .slant-left-slight,
       #workskin .paper .slant-right-slight {
         width: fit-content;
-      }
-
-      /* Default styling for text on paper */
-      #workskin .paper .text {
-        font-family: "Calibri", "Arial", sans-serif;
-        margin-bottom: 5px;
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-      }
-
-      /* Styling for handwriting text on paper */
-      #workskin .paper .text.handwriting {
-        font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
-      }
-
-      /* Scrawled notes in page header */
-      #workskin .paper .text.page-header-note {
-        font-size: 1.4em;
-        font-weight: bold;
-        line-height: 20px;
-        position: absolute;
-        left: 10px;
-        top: -75px;
-        z-index: 2;
-      }
-
-      /* Page titles */
-      #workskin .paper .text.title {
-        font-weight: bold;
-        line-height: 25px;
-        margin-bottom: 5px;
-        margin-top: -5px;
-        padding-left: 0;
-        text-align: center;
-      }
-
-      /* Styling for text on lined paper */
-      #workskin .paper.college-ruled .text,
-      #workskin .paper.notepad .text {
-        line-height: 25px;
-        margin-top: -5px;
-      }
-
-      /* Blank page-header space */
-      #workskin .paper.college-ruled.page-header::before {
-        background-repeat: no-repeat;
-      }
-      #workskin .paper.page-header {
-        position: relative;
-        padding-top: 75px;
-        box-sizing: border-box;
-      }
-      #workskin .paper.page-header > * {
-        position: relative;
-        z-index: 1;
-      }
-      #workskin .paper.page-header::before {
-        background-color: inherit;
-        content: '';
-        display: block;
-        height: 80px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 0;
-        pointer-events: none;
-      }
-      #workskin .paper.page-header:not(.college-ruled)::before {
-        background-image: none;
       }
 
       /* Margin compensation for slanted paper */
@@ -281,43 +311,17 @@
         margin-top: 2em;
       }
 
-      /* Base sticky note paper styling */
-      #workskin .paper.sticky-note {
-        display: block;
-        width: 20em;
-        height: 20em;
-        padding: 1em;
-        text-align: left;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -moz-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -o-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-      }
-
-      /* PRIORITY OVERRIDE RULES */
-      /* Priority necessitates breaking sorting rules */
-
-      /* Text positioning fixes */
-      /* Unclear why these are necessary. CSS is a pain in the ass. */
-      #workskin .paper.page-header .text:not(.title):first-of-type {
-        margin-top: 17px;
-      }
-      #workskin .paper .text.title + .text {
-        margin-top: -6px;
-      }
-      #workskin .paper.page-header .text.title + .text {
-        margin-top: -8px;
-      }
+      /* /2.3.1 - Slants */
+      /* /2.3 - Style adjustments */
+      /*  2.3 - Priority overrides */
 
       /* Extra padding for text on papers with a left margin */
       #workskin .paper.college-ruled .text {
         margin-left: 11%;
       }
 
-      /* 2 - /Layout */
+      /* /2.3 - Priority overrides */
+      /*  2 - Layout */
 
     </style>
   </head>
@@ -332,12 +336,12 @@
             <br />
             <div class="text">Printed text.</div>
             <div class="handwriting text">Handwriting.</div>
-            <div class="text slant-right-hard">Slanted text.</div>
             <div class="text tiny">Tiny text.</div>
             <div class="text small">Small text.</div>
             <div class="text">Normal text.</div>
             <div class="text big">Big text.</div>
             <div class="text huge">Huge text.</div>
+            <div class="text slant-right-hard">Slanted text.</div>
           </td>
         </tr>
       </table>
