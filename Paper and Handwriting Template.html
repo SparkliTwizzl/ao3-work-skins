@@ -26,17 +26,12 @@
       /* College-ruled paper */
       #workskin .paper.college-ruled {
         background-image:
-          linear-gradient(to bottom, transparent 24px, #00b0d7 1px),
-          linear-gradient(to right, transparent 120px, #db4034 120px, #db4034 121px, transparent 121px);
-        background-repeat: repeat, no-repeat;
-        background-size: 100% 25px, 100% 100%;
+          linear-gradient(to bottom, transparent 24px, #00b0d7 1px);
+        background-repeat: repeat;
+        background-size: 100% 25px
       }
-      #workskin .paper.college-ruled.page-header::before {
-        background-image:
-          linear-gradient(to right, transparent 120px, #db4034 120px, #db4034 121px, transparent 121px);
-        background-position: left top;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+      #workskin .paper.college-ruled::after {
+        background-color: #db4034;
       }
 
       /* Index cards */
@@ -157,6 +152,17 @@
       #workskin .paper.notepad .text {
         line-height: 25px;
         margin-top: -2.5px;
+      }
+
+      #workskin .paper.college-ruled::after {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 1px;
+        position: absolute;
+        left: 10%;
+        top: 0;
+        z-index: 1;
       }
 
       /* /2.1.2.2 - Lined papers */
@@ -356,10 +362,7 @@
 
       /* Extra padding for text on papers with a left margin */
       #workskin .paper.college-ruled .text:not(.page-header-note) {
-        margin-left: 130px;
-      }
-      #workskin .paper.college-ruled .text.page-header-note:not(.right) {
-        left: 20px;
+        margin-left: 11%;
       }
 
       /* /2.3 - Priority overrides */
