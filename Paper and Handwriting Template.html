@@ -147,13 +147,6 @@
       /* /2.1.2.1 - Default */
       /*  2.1.2.2 - Lined papers */
 
-      #workskin .paper.college-ruled .text,
-      #workskin .paper.index-card.lined .text,
-      #workskin .paper.notepad .text {
-        line-height: 25px;
-        margin-top: -2.5px;
-      }
-
       #workskin .paper.college-ruled::after {
         content: '';
         display: block;
@@ -216,7 +209,7 @@
       /*  2.1.3 - Paper components */
 
       /* Blank page-header space */
-      #workskin .paper.page-header {
+      #workskin .paper.page-header td {
         padding-top: 75px;
       }
       #workskin .paper.page-header::before {
@@ -232,7 +225,6 @@
       }
       #workskin .paper.page-header .text {
         position: relative;
-        z-index: 1;
       }
 
       /* /2.1.3 - Paper components */
@@ -253,15 +245,16 @@
       }
 
       /* Notes in page headers */
+      /* These have to be in a fully separate element from other text to work properly */
       #workskin .paper .text.page-header-note {
-        font-size: 1.4em;
+        font-size: 1.6em;
         font-weight: bold;
+        margin-inline: auto;
         position: absolute;
         left: 0;
         right: 0;
-        margin-inline: auto;
+        top: 30px;
         width: fit-content;
-        top: -60px;
         z-index: 2;
       }
       #workskin .paper .text.page-header-note.left {
@@ -280,6 +273,15 @@
       }
 
       /* /2.2.1 - Text bases */
+      /*  2.2.2 - Paper-specific text */
+
+      #workskin .paper.college-ruled .text,
+      #workskin .paper.index-card.lined .text,
+      #workskin .paper.notepad .text {
+        line-height: 25px;
+      }
+
+      /*  2.2.2 - Paper-specific text */
       /* /2.2 - Text */
       /*  2.3 - Style adjustments */
       /*  2.3.1 - Slants */
@@ -363,6 +365,12 @@
       /* Extra padding for text on papers with a left margin */
       #workskin .paper.college-ruled .text:not(.page-header-note) {
         margin-left: 11%;
+      }
+      #workskin .paper.college-ruled .text.page-header-note:not(.right) {
+        left: 11%;
+      }
+      #workskin .paper.college-ruled .text.page-header-note.left {
+        margin-left: 3%;
       }
 
       /* /2.3 - Priority overrides */
@@ -753,10 +761,8 @@
       <table class="paper page-header">
         <tr>
           <td>
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="left page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="left page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -764,10 +770,8 @@
       <table class="paper page-header">
         <tr>
           <td>
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -775,10 +779,8 @@
       <table class="paper page-header">
         <tr>
           <td>
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="right page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="right page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -789,10 +791,8 @@
         <tr>
           <td>
             <div class="title text">Title</div>
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -878,10 +878,8 @@
       <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting left page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting left page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -889,10 +887,8 @@
       <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -900,10 +896,8 @@
       <table class="college-ruled paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting right page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting right page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -914,10 +908,8 @@
         <tr>
           <td>
             <div class="handwriting title text">Title</div>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -1003,10 +995,8 @@
       <table class="notepad paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting left page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting left page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -1014,10 +1004,8 @@
       <table class="notepad paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -1025,10 +1013,8 @@
       <table class="notepad paper page-header">
         <tr>
           <td>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting right page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting right page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
@@ -1039,10 +1025,8 @@
         <tr>
           <td>
             <div class="handwriting title text">Title</div>
-            <div class="handwriting text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <span class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</span>
-            </div>
+            <div class="handwriting text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="handwriting page-header-note text">Lorem ipsum dolor sit amet.</div>
           </td>
         </tr>
       </table>
