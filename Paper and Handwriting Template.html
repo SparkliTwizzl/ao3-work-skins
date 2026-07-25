@@ -31,6 +31,9 @@
       #workskin .paper.college-ruled::after {
         background-color: #db4034;
       }
+      #workskin .paper.college-ruled::before {
+        background-color: inherit;
+      }
 
       /* Index cards */
       #workskin .paper.index-card.lined {
@@ -38,17 +41,20 @@
         background-size: 100% 25px;
         background-position-y: 5px;
       }
+      #workskin .paper.index-card.lined::after {
+        background-color: #db4034;
+      }
       #workskin .paper.index-card.lined::before {
-        background-image: linear-gradient(to bottom, transparent 29px, #db4034 1px);
-        background-position: left top;
-        background-repeat: no-repeat;
-        background-size: 100% 30px;
+        background-color: inherit;
       }
 
       /* Notepad paper */
       #workskin .paper.notepad {
         background-image: linear-gradient(to bottom, transparent 2px, #b9b9b9 2px 3px, transparent 3px 25px);
         background-size: 100% 25px;
+      }
+      #workskin .paper.notepad::before {
+        background-color: inherit;
       }
 
       /* /1.1.1 - Paper types */
@@ -147,17 +153,15 @@
 
       #workskin .paper.college-ruled::before,
       #workskin .paper.notepad::before {
-        background-color: inherit;
         content: '';
         display: block;
-        height: 3px;
+        height: 5px;
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         z-index: 0;
       }
-
       #workskin .paper.college-ruled::after {
         content: '';
         display: block;
@@ -175,27 +179,34 @@
       #workskin .paper.index-card,
       #workskin .paper.sticky-note {
         display: block;
-        padding: 1em;
+        padding: 0.5em;
         margin-left: auto;
         margin-right: auto;
         overflow: hidden;
-        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -moz-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -o-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-        -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
       }
 
       #workskin .paper.index-card {
-        height: 300px; /* 11.8 lines */
-        width: 500px; /* 5:3 aspect ratio */
+        height: 18em;
+        width: 30em; /* 5:3 aspect ratio */
+        max-height: 60%;
+        max-width: 100%;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
       }
       #workskin .paper.index-card.lined {
-        height: 270px;
-        width: 500px;
         padding-top: 2px;
       }
+      #workskin .paper.index-card.lined::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 29px;
+        z-index: 1;
+      }
       #workskin .paper.index-card.lined::before {
-        background-color: inherit;
         content: '';
         display: block;
         height: 30px;
@@ -207,7 +218,6 @@
       }
       #workskin .paper.index-card.lined .text {
         position: relative;
-        z-index: 1;
       }
 
       #workskin .paper.sticky-note {
@@ -258,7 +268,7 @@
       /* Notes in page headers */
       /* These have to be in a fully separate element from other text to work properly */
       #workskin .paper .text.page-header-note {
-        font-size: 1.6em;
+        font-size: 1.4em;
         font-weight: bold;
         margin-inline: auto;
         position: absolute;
@@ -379,9 +389,6 @@
       }
       #workskin .paper.college-ruled .text.page-header-note:not(.right) {
         left: 11%;
-      }
-      #workskin .paper.college-ruled .text.page-header-note.left {
-        margin-left: 3%;
       }
 
       /* /2.3 - Priority overrides */
