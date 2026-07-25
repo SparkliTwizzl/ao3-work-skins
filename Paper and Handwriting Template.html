@@ -12,8 +12,6 @@
 
       /* The lack of ability to use custom properties makes consistency and maintenance a pain in the ass. */
 
-      /* There's a known bug causing inconsistent line spacing between a single multi-line .text element vs multiple consecutive ones. This bug affects .title elements, since they extend the base .text class. */
-
       /*  1 - Colors and sizes */
       /*  1.1 - Colors */
       /*  1.1.1 - Paper types */
@@ -26,7 +24,7 @@
       /* College-ruled paper */
       #workskin .paper.college-ruled {
         background-image:
-          linear-gradient(to bottom, transparent 24px, #00b0d7 1px);
+          linear-gradient(to bottom, transparent 2px, #00b0d7 2px 3px, transparent 3px 25px);
         background-repeat: repeat;
         background-size: 100% 25px
       }
@@ -49,7 +47,7 @@
 
       /* Notepad paper */
       #workskin .paper.notepad {
-        background-image: linear-gradient(to bottom, transparent 24px, #b9b9b9 1px);
+        background-image: linear-gradient(to bottom, transparent 2px, #b9b9b9 2px 3px, transparent 3px 25px);
         background-size: 100% 25px;
       }
 
@@ -147,6 +145,19 @@
       /* /2.1.2.1 - Default */
       /*  2.1.2.2 - Lined papers */
 
+      #workskin .paper.college-ruled::before,
+      #workskin .paper.notepad::before {
+        background-color: inherit;
+        content: '';
+        display: block;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 0;
+      }
+
       #workskin .paper.college-ruled::after {
         content: '';
         display: block;
@@ -181,7 +192,7 @@
       #workskin .paper.index-card.lined {
         height: 270px;
         width: 500px;
-        padding-top: 5px;
+        padding-top: 2px;
       }
       #workskin .paper.index-card.lined::before {
         background-color: inherit;
@@ -210,7 +221,7 @@
 
       /* Blank page-header space */
       #workskin .paper.page-header td {
-        padding-top: 75px;
+        padding-top: 78px;
       }
       #workskin .paper.page-header::before {
         background-color: inherit;
