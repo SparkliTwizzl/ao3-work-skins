@@ -1,0 +1,365 @@
+/* 1 - Theme colors */
+/* 1.1 - Dark theme (Default) */
+/* Default colors */
+#workskin .irc,
+#workskin .irc.dark-theme {
+  background: #2c2c2c;
+  border-color: #686868;
+  color: #dedede;
+}
+
+/* Code blocks */
+#workskin .irc code,
+#workskin .irc.dark-theme code {
+  background-color: #444444;
+  border-color: #686868;
+  color: #fdab7f;
+}
+
+/* Chat channel headers */
+#workskin .irc h1,
+#workskin .irc.dark-theme h1 {
+  background-color: #444444;
+  border-color: #606060;
+  color: #c0c0c0;
+}
+
+/* Text input boxes */
+#workskin .irc .inputbox,
+#workskin .irc .inputbox-empty,
+#workskin .irc.dark-theme .inputbox,
+#workskin .irc.dark-theme .inputbox-empty {
+  background-color: #444444;
+}
+
+#workskin .irc .inputbox,
+#workskin .irc.dark-theme .inputbox {
+  color: #dedede;
+}
+
+#workskin .irc .inputbox-empty,
+#workskin .irc.dark-theme .inputbox-empty {
+  color: #808080;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after,
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before,
+#workskin .irc.dark-theme .inputbox::after,
+#workskin .irc.dark-theme .inputbox-empty::after,
+#workskin .irc.dark-theme .inputbox::before,
+#workskin .irc.dark-theme .inputbox-empty::before {
+  color: #c0c0c0;
+}
+
+/* Links within messages */
+#workskin .irc .link,
+#workskin .irc.dark-theme .link {
+  color: #88c5ff;
+}
+
+/* User mentions */
+#workskin .irc .mention,
+#workskin .irc.dark-theme .mention {
+  background-color: #408040;
+  color: white;
+}
+
+#workskin .irc .mention:hover,
+#workskin .irc.dark-theme .mention:hover {
+  background-color: #3daa3d;
+  color: white;
+}
+
+/* Highlighted messages */
+#workskin .irc .message-highlight,
+#workskin .irc.dark-theme .message-highlight {
+  background-color: #535328;
+}
+
+/* Typing indicators */
+#workskin .irc .typing,
+#workskin .irc.dark-theme .typing {
+  color: #909090;
+}
+
+/* 1.1 - /Dark theme */
+
+/* 1.2 - Light theme */
+/* Default colors */
+#workskin .irc.light-theme {
+  background: #f9f9f9;
+  border-color: #c0c0c0;
+  color: #202020;
+}
+
+/* Code blocks */
+#workskin .irc.light-theme code {
+  background-color: #e8e8e8;
+  border-color: #b0b0b0;
+  color: #a54410;
+}
+
+/* Chat channel headers */
+#workskin .irc.light-theme h1 {
+  background-color: #e0e0e0;
+  border-color: #b0b0b0;
+  color: #707070;
+}
+
+/* Text input boxes */
+#workskin .irc.light-theme .inputbox,
+#workskin .irc.light-theme .inputbox-empty {
+  background-color: #e0e0e0;
+}
+
+#workskin .irc.light-theme .inputbox {
+  color: #202020;
+}
+
+#workskin .irc.light-theme .inputbox-empty {
+  color: #a0a0a0;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc.light-theme .inputbox::after,
+#workskin .irc.light-theme .inputbox-empty::after,
+#workskin .irc.light-theme .inputbox::before,
+#workskin .irc.light-theme .inputbox-empty::before {
+  color: #888888;
+}
+
+/* Links within messages */
+#workskin .irc.light-theme .link {
+  color: #4e92f8;
+}
+
+/* User mentions */
+#workskin .irc.light-theme .mention {
+  background-color: #b2f0a3;
+  color: black;
+}
+
+#workskin .irc.light-theme .mention:hover {
+  background-color: #429642;
+  color: white;
+}
+
+/* Highlighted messages */
+#workskin .irc.light-theme .message-highlight {
+  background-color: #ebebb6;
+}
+
+/* Typing indicators */
+#workskin .irc.light-theme .typing {
+  color: #909090;
+}
+
+/* 1.2 - /Light theme */
+/* 1 - /Theme colors */
+
+/* 2 - Layout */
+/* Default styling */
+#workskin .irc {
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 2px;
+  font-family: "Helvetica";
+  padding: 10px;
+}
+
+/* Alternate styling for mobile UI */
+#workskin .irc.mobile {
+  left: 0;
+  margin: auto;
+  max-width: 30em;
+  position: relative;
+  right: 0;
+}
+
+/* Code blocks */
+#workskin .irc code {
+  border-style: solid;
+  border-width: 1.5px;
+  font-weight: bold;
+}
+
+/* Chat channel headers */
+#workskin .irc h1 {
+  border-bottom: 2px solid;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-top: 0;
+  overflow: hidden;
+  padding: 10px 10px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Default element styling. (Prevents spillover from other styling.) */
+#workskin .irc span {
+  cursor: auto;
+  font-weight: normal;
+}
+
+/* Text input boxes */
+#workskin .irc .inputbox,
+#workskin .irc .inputbox-empty {
+  border-radius: 0.33em;
+  cursor: text;
+  padding: 2px 7px;
+  margin-top: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+
+#workskin .irc .inputbox:not(.typing ~ .inputbox),
+#workskin .irc .inputbox-empty:not(.typing ~ .inputbox-empty) {
+  margin-top: 27px;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after,
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* "Send message" button after text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after {
+  content: "\25b6";
+  font-size: 1.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* "Upload file" button before text input boxes */
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before {
+  content: "+";
+  font-size: 2em;
+  margin-right: 0.5em;
+}
+
+/* Usernames in text input boxes */
+#workskin .irc .inputbox .user,
+#workskin .irc .inputbox-empty .user {
+  cursor: text;
+}
+
+/* Links within messages */
+#workskin .irc .link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* User mentions */
+#workskin .irc .mention {
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 1px 3px;
+}
+
+#workskin .irc .mention:hover {
+  text-decoration: underline;
+}
+
+/* Pad messages for readability's sake */
+#workskin .irc .message,
+#workskin .irc .message-highlight {
+  margin-bottom: 5px;
+}
+
+/* Usernames in messages */
+#workskin .irc .message .sender,
+#workskin .irc .message .user,
+#workskin .irc .message-highlight .sender,
+#workskin .irc .message-highlight .user {
+  cursor: pointer;
+}
+
+/* Decorate message senders */
+#workskin .irc .message .sender::after,
+#workskin .irc .message-highlight .sender::after {
+  content: "\003e";
+}
+
+#workskin .irc .message .sender::before,
+#workskin .irc .message-highlight .sender::before {
+  content: "\003c";
+}
+
+/* Replied message previews */
+#workskin .irc .reply {
+  cursor: pointer;
+  font-size: 0.85em;
+  font-style: italic;
+  max-width: 40em;
+  overflow: hidden;
+  padding-left: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Decorate reply preview senders */
+#workskin .irc .reply .sender::after {
+  content: ": ";
+}
+
+#workskin .irc .reply .sender::before {
+  content: "reply to ";
+  font-weight: normal;
+}
+
+/* Override cursor for reply preview text */
+#workskin .irc .reply .text {
+  cursor: pointer;
+}
+
+/* Default styling for usernames */
+#workskin .irc .sender,
+#workskin .irc .user {
+  font-weight: bold;
+}
+
+/* Differentiate system messages from user messages */
+#workskin .irc .system {
+  font-style: italic;
+}
+
+/* Decorate message timestamps */
+#workskin .irc .time::after {
+  content: "]";
+}
+
+#workskin .irc .time::before {
+  content: "[";
+}
+
+/* Typing indicators */
+#workskin .irc .typing {
+  cursor: default;
+  font-size: 0.875em;
+  font-style: italic;
+  padding-left: 20px;
+}
+
+/* Override cursor for users in typing indicators */
+#workskin .irc .typing .user {
+  cursor: default;
+  font-weight: bold;
+}
+
+/* 2 - /Layout */
