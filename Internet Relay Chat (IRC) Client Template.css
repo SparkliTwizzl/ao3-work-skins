@@ -1,6 +1,7 @@
-/* 1 - Theme colors */
-/* 1.1 - Dark theme (Default) */
-/* Default colors */
+/*  1 - Theme colors */
+/*  1.1 - Dark theme (Default) */
+
+/* Base colors */
 #workskin .irc,
 #workskin .irc.dark-theme {
   background: #2c2c2c;
@@ -85,10 +86,10 @@
   color: #909090;
 }
 
-/* 1.1 - /Dark theme */
+/* /1.1 - Dark theme */
+/*  1.2 - Light theme */
 
-/* 1.2 - Light theme */
-/* Default colors */
+/* Base colors */
 #workskin .irc.light-theme {
   background: #f9f9f9;
   border-color: #c0c0c0;
@@ -157,11 +158,11 @@
   color: #909090;
 }
 
-/* 1.2 - /Light theme */
-/* 1 - /Theme colors */
+/* /1.2 - Light theme */
+/* /1 - Theme colors */
+/*  2 - Layout */
 
-/* 2 - Layout */
-/* Default styling */
+/* Base styling */
 #workskin .irc {
   border-radius: 0.5em;
   border-style: solid;
@@ -362,4 +363,4 @@
   font-weight: bold;
 }
 
-/* 2 - /Layout */
+/* /2 - Layout */
