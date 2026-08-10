@@ -4,9 +4,9 @@
 /* Base colors */
 #workskin .rcs,
 #workskin .rcs.light-theme {
-  background-color: #ffffff;
-  border-color: #c0c0c0;
-  color: #000000;
+  background-color: #ffffff !important;
+  border-color: #c0c0c0 !important;
+  color: #000000 !important;
 }
 
 /* Conversation headers */
@@ -92,9 +92,9 @@
 
 /* Base colors */
 #workskin .rcs.dark-theme {
-  background-color: #282828;
-  border-color: #606060;
-  color: #ffffff;
+  background-color: #282828 !important;
+  border-color: #606060 !important;
+  color: #ffffff !important;
 }
 
 /* Conversation headers */
