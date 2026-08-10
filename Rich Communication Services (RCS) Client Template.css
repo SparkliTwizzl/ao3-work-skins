@@ -10,25 +10,81 @@
 }
 
 /* Conversation headers */
-#workskin .rcs h1 {
+#workskin .rcs h1,
+#workskin .rcs.light-theme h1 {
   background-color: #1a6ce6;
   color: #ffffff;
 }
 
-/* Sent message (default) */
+/* Text input boxes */
+#workskin .rcs .input-box,
+#workskin .rcs .input-box.empty,
+#workskin .rcs.light-theme .input-box,
+#workskin .rcs.light-theme .input-box.empty {
+  background-color: #e0e0e0;
+}
+
+#workskin .rcs .input-box,
+#workskin .rcs.light-theme .input-box {
+  color: #000000;
+}
+
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box.empty::before,
+#workskin .rcs.light-theme .input-box::after,
+#workskin .rcs.light-theme .input-box::before,
+#workskin .rcs.light-theme .input-box.empty::before {
+  color: #606060;
+}
+
+#workskin .rcs .input-box.empty,
+#workskin .rcs .input-box.empty::after,
+#workskin .rcs.light-theme .input-box.empty,
+#workskin .rcs.light-theme .input-box.empty::after {
+  color: #b0b0b0;
+}
+
+/* Messages */
+/* Sent messages (default) */
 #workskin .rcs .message,
 #workskin .rcs .message.sent,
 #workskin .rcs.light-theme .message,
 #workskin .rcs.light-theme .message.sent {
-  background-color: #d8d8d8;
+  background-color: #e8e8e8;
   color: #000000;
 }
 
-/* Received message */
+/* Received messages */
 #workskin .rcs .message.received,
 #workskin .rcs.light-theme .message.received {
   background-color: #1a6ce6;
   color: #ffffff;
+}
+
+/* Status receipts */
+#workskin .rcs .status-receipt,
+#workskin .rcs.light-theme .status-receipt {
+  color: #888888;
+}
+
+/* Timestamps */
+#workskin .rcs .timestamp,
+#workskin .rcs.light-theme .timestamp {
+  color: #888888;
+}
+
+/* Typing indicators */
+#workskin .rcs .typing {
+  background-color: #b4b4b4;
+}
+
+#workskin .rcs .typing::after {
+  background-color: #989898;
+}
+
+#workskin .rcs .typing::before {
+  background-color: #e0e0e0;
 }
 
 /* /1.1 - Light theme */
@@ -41,11 +97,56 @@
   color: #ffffff;
 }
 
-/* Sent message (default) */
+/* Conversation headers */
+/* Inherited from light theme */
+
+/* Text input boxes */
+#workskin .rcs.dark-theme .input-box,
+#workskin .rcs.dark-theme .input-box.empty {
+  background-color: #606060;
+}
+
+#workskin .rcs.dark-theme .input-box {
+  color: #ffffff;
+}
+
+#workskin .rcs.dark-theme .input-box::after,
+#workskin .rcs.dark-theme .input-box::before,
+#workskin .rcs.dark-theme .input-box.empty::before {
+  color: #d8d8d8;
+}
+
+#workskin .rcs.dark-theme .input-box.empty,
+#workskin .rcs.dark-theme .input-box.empty::after {
+  color: #909090;
+}
+
+/* Messages */
+/* Sent messages (default) */
+#workskin .rcs.dark-theme .message,
 #workskin .rcs.dark-theme .message.sent {
   background-color: #505050;
   color: #ffffff;
 }
+
+/* Received messages */
+#workskin .rcs.dark-theme .message.received {
+  background-color: #1a6ce6;
+  color: #ffffff;
+}
+
+/* Status receipts */
+#workskin .rcs.dark-theme .status-receipt {
+  color: #989898;
+}
+
+/* Timestamps */
+#workskin .rcs.dark-theme .timestamp {
+  color: #989898;
+}
+
+/* Typing indicators */
+/* Inherited from light theme */
 
 /* /1.2 - Dark theme */
 /* /1 - Theme colors */
@@ -61,7 +162,7 @@
   border: 2px solid;
   font-family: "Helvetica";
   left: 0;
-  margin: auto;
+  margin: 20px auto;
   max-width: 30em;
   position: relative;
   right: 0;
@@ -84,12 +185,87 @@
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
 }
 
+/* Buttons in headers */
+#workskin .rcs h1::after,
+#workskin .rcs h1::before {
+  cursor: pointer;
+  font-size: 1.5em;
+  position: absolute;
+  top: 0;
+  transform: translateY(10%);
+}
+
+/* 3-dot menu button in headers */
+#workskin .rcs h1::after {
+  content: "\22ee";
+  right: 10px;
+}
+
+/* Back button in headers */
+#workskin .rcs h1::before {
+  content: "\1f808";
+  left: 10px;
+}
+
+/* Text input boxes */
+#workskin .rcs .input-box,
+#workskin .rcs .input-box-empty {
+  cursor: text;
+  padding: 2px 7px;
+  margin-top: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+
+#workskin .rcs .input-box:not(.typing ~ .input-box),
+#workskin .rcs .input-box-empty:not(.typing ~ .input-box-empty) {
+  margin-top: 27px;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box-empty::after,
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box-empty::before {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* "Send message" button after text input boxes */
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box-empty::after {
+  content: "\2b9e";
+  font-size: 1.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* "Upload file" button before text input boxes */
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box-empty::before {
+  content: "+";
+  font-size: 2em;
+  margin-right: 0.5em;
+}
+
+/* Links within messages */
+#workskin .rcs .link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /* Messages */
 #workskin .rcs .message {
   border-radius: 0.5em;
   border-style: none;
   padding: 5px 10px;
   margin: 10px;
+  max-width: 22.5em;
   width: fit-content;
 }
 
@@ -101,6 +277,56 @@
 #workskin .rcs .message.sent {
   text-align: right;
   margin-left: auto;
+}
+
+/* Status receipt */
+#workskin .rcs .status-receipt {
+  font-size: 0.75em;
+}
+
+#workskin .rcs .status-receipt,
+#workskin .rcs .status-receipt.sent {
+  text-align: right;
+  margin-right: 15px;
+}
+
+#workskin .rcs .status-receipt.received {
+  text-align: left;
+  margin-left: 15px;
+}
+
+/* Timestamp */
+#workskin .rcs .timestamp {
+  text-align: center;
+  font-size: 0.75em;
+}
+
+/* Typing indicators */
+#workskin .rcs .typing,
+#workskin .rcs .typing::after,
+#workskin .rcs .typing::before {
+  border-radius: 100%;
+  content: '';
+  display: inline-block;
+  height: 0.5em;
+  width: 0.5em;
+}
+
+#workskin .rcs .typing {
+  margin: 0 7px;
+}
+
+#workskin .rcs .typing::after,
+#workskin .rcs .typing::before {
+  position: absolute;
+}
+
+#workskin .rcs .typing::before {
+  left: 1em;
+}
+
+#workskin .rcs .typing::after {
+  left: 2.4em;
 }
 
 /* /2 - Layout */
