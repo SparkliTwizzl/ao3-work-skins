@@ -191,8 +191,7 @@
   cursor: pointer;
   font-size: 1.5em;
   position: absolute;
-  top: 0;
-  transform: translateY(10%);
+  transform: translateY(-15%);
 }
 
 /* 3-dot menu button in headers */
@@ -313,7 +312,7 @@
 }
 
 #workskin .rcs .typing {
-  margin: 0 7px;
+  margin: 0 0.5em;
 }
 
 #workskin .rcs .typing::after,
@@ -322,11 +321,11 @@
 }
 
 #workskin .rcs .typing::before {
-  left: 1em;
+  transform: translateX(-150%);
 }
 
 #workskin .rcs .typing::after {
-  left: 2.4em;
+  transform: translateX(150%);
 }
 
 /* /2 - Layout */
