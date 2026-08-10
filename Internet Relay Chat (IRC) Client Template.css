@@ -26,32 +26,32 @@
 }
 
 /* Text input boxes */
-#workskin .irc .inputbox,
-#workskin .irc .inputbox-empty,
-#workskin .irc.dark-theme .inputbox,
-#workskin .irc.dark-theme .inputbox-empty {
+#workskin .irc .input-box,
+#workskin .irc .input-box.empty,
+#workskin .irc.dark-theme .input-box,
+#workskin .irc.dark-theme .input-box.empty {
   background-color: #444444;
 }
 
-#workskin .irc .inputbox,
-#workskin .irc.dark-theme .inputbox {
+#workskin .irc .input-box,
+#workskin .irc.dark-theme .input-box {
   color: #dedede;
 }
 
-#workskin .irc .inputbox-empty,
-#workskin .irc.dark-theme .inputbox-empty {
+#workskin .irc .input-box.empty,
+#workskin .irc.dark-theme .input-box.empty {
   color: #808080;
 }
 
 /* Buttons surrounding text input boxes */
-#workskin .irc .inputbox::after,
-#workskin .irc .inputbox-empty::after,
-#workskin .irc .inputbox::before,
-#workskin .irc .inputbox-empty::before,
-#workskin .irc.dark-theme .inputbox::after,
-#workskin .irc.dark-theme .inputbox-empty::after,
-#workskin .irc.dark-theme .inputbox::before,
-#workskin .irc.dark-theme .inputbox-empty::before {
+#workskin .irc .input-box::after,
+#workskin .irc .input-box.empty::after,
+#workskin .irc .input-box::before,
+#workskin .irc .input-box.empty::before,
+#workskin .irc.dark-theme .input-box::after,
+#workskin .irc.dark-theme .input-box.empty::after,
+#workskin .irc.dark-theme .input-box::before,
+#workskin .irc.dark-theme .input-box.empty::before {
   color: #c0c0c0;
 }
 
@@ -111,24 +111,24 @@
 }
 
 /* Text input boxes */
-#workskin .irc.light-theme .inputbox,
-#workskin .irc.light-theme .inputbox-empty {
+#workskin .irc.light-theme .input-box,
+#workskin .irc.light-theme .input-box.empty {
   background-color: #e0e0e0;
 }
 
-#workskin .irc.light-theme .inputbox {
+#workskin .irc.light-theme .input-box {
   color: #202020;
 }
 
-#workskin .irc.light-theme .inputbox-empty {
+#workskin .irc.light-theme .input-box.empty {
   color: #a0a0a0;
 }
 
 /* Buttons surrounding text input boxes */
-#workskin .irc.light-theme .inputbox::after,
-#workskin .irc.light-theme .inputbox-empty::after,
-#workskin .irc.light-theme .inputbox::before,
-#workskin .irc.light-theme .inputbox-empty::before {
+#workskin .irc.light-theme .input-box::after,
+#workskin .irc.light-theme .input-box.empty::after,
+#workskin .irc.light-theme .input-box::before,
+#workskin .irc.light-theme .input-box.empty::before {
   color: #888888;
 }
 
@@ -207,8 +207,8 @@
 }
 
 /* Text input boxes */
-#workskin .irc .inputbox,
-#workskin .irc .inputbox-empty {
+#workskin .irc .input-box,
+#workskin .irc .input-box.empty {
   border-radius: 0.33em;
   cursor: text;
   padding: 2px 7px;
@@ -217,16 +217,16 @@
   vertical-align: middle;
 }
 
-#workskin .irc .inputbox:not(.typing ~ .inputbox),
-#workskin .irc .inputbox-empty:not(.typing ~ .inputbox-empty) {
+#workskin .irc .input-box:not(.typing ~ .input-box),
+#workskin .irc .input-box.empty:not(.typing ~ .input-box.empty) {
   margin-top: 27px;
 }
 
 /* Buttons surrounding text input boxes */
-#workskin .irc .inputbox::after,
-#workskin .irc .inputbox-empty::after,
-#workskin .irc .inputbox::before,
-#workskin .irc .inputbox-empty::before {
+#workskin .irc .input-box::after,
+#workskin .irc .input-box.empty::after,
+#workskin .irc .input-box::before,
+#workskin .irc .input-box.empty::before {
   cursor: pointer;
   display: inline-block;
   line-height: 1;
@@ -234,8 +234,8 @@
 }
 
 /* "Send message" button after text input boxes */
-#workskin .irc .inputbox::after,
-#workskin .irc .inputbox-empty::after {
+#workskin .irc .input-box::after,
+#workskin .irc .input-box.empty::after {
   content: "\25b6";
   font-size: 1.5em;
   position: absolute;
@@ -245,16 +245,16 @@
 }
 
 /* "Upload file" button before text input boxes */
-#workskin .irc .inputbox::before,
-#workskin .irc .inputbox-empty::before {
+#workskin .irc .input-box::before,
+#workskin .irc .input-box.empty::before {
   content: "+";
   font-size: 2em;
   margin-right: 0.5em;
 }
 
 /* Usernames in text input boxes */
-#workskin .irc .inputbox .user,
-#workskin .irc .inputbox-empty .user {
+#workskin .irc .input-box .user,
+#workskin .irc .input-box.empty .user {
   cursor: text;
 }
 
