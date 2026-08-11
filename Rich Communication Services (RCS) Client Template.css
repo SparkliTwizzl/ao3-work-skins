@@ -171,8 +171,7 @@
 /* Conversation headers */
 #workskin .rcs h1 {
   font-size: 1.25em;
-  margin-bottom: 10px;
-  margin-top: 0;
+  margin: 0 0 10px;
   overflow: hidden;
   padding: 10px 10px;
   text-align: center;
@@ -189,21 +188,23 @@
 #workskin .rcs h1::after,
 #workskin .rcs h1::before {
   cursor: pointer;
-  font-size: 1.5em;
   position: absolute;
-  transform: translateY(-15%);
 }
 
 /* 3-dot menu button in headers */
 #workskin .rcs h1::after {
   content: "\22ee";
-  right: 10px;
+  font-size: 1.5em;
+  right: 20px;
+  top: 1%;
 }
 
 /* Back button in headers */
 #workskin .rcs h1::before {
-  content: "\1f808";
+  content: "\25c0";
+  font-size: 1.15em;
   left: 10px;
+  top: 2%;
 }
 
 /* Text input boxes */
@@ -235,7 +236,7 @@
 /* "Send message" button after text input boxes */
 #workskin .rcs .input-box::after,
 #workskin .rcs .input-box-empty::after {
-  content: "\2b9e";
+  content: "\25b6";
   font-size: 1.5em;
   position: absolute;
   right: 0.5em;
