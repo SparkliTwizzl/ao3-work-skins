@@ -1,0 +1,1296 @@
+/* HIDE ELEMENTS */
+
+#workskin .hide {
+  display: none;
+}
+
+/* /HIDE ELEMENTS */
+/* RCS CLIENT */
+
+/*  1 - Theme colors */
+/*  1.1 - Light theme (Default) */
+
+/* Base colors */
+#workskin .rcs,
+#workskin .rcs.light-theme {
+  background-color: #ffffff !important;
+  border-color: #c0c0c0 !important;
+  color: #000000 !important;
+}
+
+/* Conversation headers */
+#workskin .rcs h1,
+#workskin .rcs.light-theme h1 {
+  background-color: #1a6ce6;
+  color: #ffffff;
+}
+
+/* Text input boxes */
+#workskin .rcs .input-box,
+#workskin .rcs .input-box.empty,
+#workskin .rcs.light-theme .input-box,
+#workskin .rcs.light-theme .input-box.empty {
+  background-color: #e0e0e0;
+}
+
+#workskin .rcs .input-box,
+#workskin .rcs.light-theme .input-box {
+  color: #000000;
+}
+
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box.empty::before,
+#workskin .rcs.light-theme .input-box::after,
+#workskin .rcs.light-theme .input-box::before,
+#workskin .rcs.light-theme .input-box.empty::before {
+  color: #606060;
+}
+
+#workskin .rcs .input-box.empty,
+#workskin .rcs .input-box.empty::after,
+#workskin .rcs.light-theme .input-box.empty,
+#workskin .rcs.light-theme .input-box.empty::after {
+  color: #b0b0b0;
+}
+
+/* Messages */
+/* Sent messages (default) */
+#workskin .rcs .message,
+#workskin .rcs .message.sent,
+#workskin .rcs.light-theme .message,
+#workskin .rcs.light-theme .message.sent {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
+/* Received messages */
+#workskin .rcs .message.received,
+#workskin .rcs.light-theme .message.received {
+  background-color: #1a6ce6;
+  color: #ffffff;
+}
+
+/* Message contact names */
+#workskin .rcs .sender,
+#workskin .rcs.light-theme .sender {
+  color: #686868;
+}
+
+/* Status receipts */
+#workskin .rcs .status-receipt,
+#workskin .rcs.light-theme .status-receipt {
+  color: #888888;
+}
+
+/* Timestamps */
+#workskin .rcs .timestamp,
+#workskin .rcs.light-theme .timestamp {
+  color: #888888;
+}
+
+/* Typing indicators */
+#workskin .rcs .typing {
+  background-color: #b4b4b4;
+}
+
+#workskin .rcs .typing::after {
+  background-color: #989898;
+}
+
+#workskin .rcs .typing::before {
+  background-color: #e0e0e0;
+}
+
+/* /1.1 - Light theme */
+/*  1.2 - Dark theme */
+
+/* Base colors */
+#workskin .rcs.dark-theme {
+  background-color: #282828 !important;
+  border-color: #606060 !important;
+  color: #ffffff !important;
+}
+
+/* Conversation headers */
+/* Inherited from light theme */
+
+/* Text input boxes */
+#workskin .rcs.dark-theme .input-box,
+#workskin .rcs.dark-theme .input-box.empty {
+  background-color: #606060;
+}
+
+#workskin .rcs.dark-theme .input-box {
+  color: #ffffff;
+}
+
+#workskin .rcs.dark-theme .input-box::after,
+#workskin .rcs.dark-theme .input-box::before,
+#workskin .rcs.dark-theme .input-box.empty::before {
+  color: #d8d8d8;
+}
+
+#workskin .rcs.dark-theme .input-box.empty,
+#workskin .rcs.dark-theme .input-box.empty::after {
+  color: #909090;
+}
+
+/* Messages */
+/* Sent messages (default) */
+#workskin .rcs.dark-theme .message,
+#workskin .rcs.dark-theme .message.sent {
+  background-color: #505050;
+  color: #ffffff;
+}
+
+/* Received messages */
+#workskin .rcs.dark-theme .message.received {
+  background-color: #1a6ce6;
+  color: #ffffff;
+}
+
+/* Message contact names */
+#workskin .rcs .sender {
+  color: #c0c0c0;
+}
+
+/* Status receipts */
+#workskin .rcs.dark-theme .status-receipt {
+  color: #989898;
+}
+
+/* Timestamps */
+#workskin .rcs.dark-theme .timestamp {
+  color: #989898;
+}
+
+/* Typing indicators */
+/* Inherited from light theme */
+
+/* /1.2 - Dark theme */
+/* /1 - Theme colors */
+/*  2 - Layout */
+
+/* Base styling */
+#workskin .rcs {
+  border: 2px solid;
+  font-family: "Helvetica";
+  left: 0;
+  margin: 20px auto;
+  max-width: 30em;
+  position: relative;
+  right: 0;
+}
+
+/* Conversation headers */
+#workskin .rcs h1 {
+  font-size: 1.25em;
+  margin: 0 0 10px;
+  overflow: hidden;
+  padding: 10px 10px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  -o-box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+}
+
+/* Buttons in headers */
+#workskin .rcs h1::after,
+#workskin .rcs h1::before {
+  cursor: pointer;
+  position: absolute;
+}
+
+/* 3-dot menu button in headers */
+#workskin .rcs h1::after {
+  content: "\22ee";
+  font-size: 1.5em;
+  right: 20px;
+  top: 0.2em;
+}
+
+/* Back button in headers */
+#workskin .rcs h1::before {
+  content: "\25c0";
+  font-size: 1.15em;
+  left: 10px;
+  top: 0.45em;
+}
+
+/* Text input boxes */
+#workskin .rcs .input-box,
+#workskin .rcs .input-box-empty {
+  cursor: text;
+  padding: 2px 7px;
+  margin-top: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+
+#workskin .rcs .input-box:not(.typing ~ .input-box),
+#workskin .rcs .input-box-empty:not(.typing ~ .input-box-empty) {
+  margin-top: 27px;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box-empty::after,
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box-empty::before {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* "Send message" button after text input boxes */
+#workskin .rcs .input-box::after,
+#workskin .rcs .input-box-empty::after {
+  content: "\25b6";
+  font-size: 1.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* "Upload file" button before text input boxes */
+#workskin .rcs .input-box::before,
+#workskin .rcs .input-box-empty::before {
+  content: "+";
+  font-size: 2em;
+  margin-right: 0.5em;
+}
+
+/* Links within messages */
+#workskin .rcs .link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Messages */
+#workskin .rcs .message {
+  border-radius: 0.5em;
+  border-style: none;
+  padding: 5px 10px;
+  margin: 0 10px 10px;
+  max-width: 22.5em;
+  width: fit-content;
+}
+
+#workskin .rcs .message.received {
+  vertical-align: left;
+  margin-right: auto;
+}
+
+#workskin .rcs .message.sent {
+  vertical-align: right;
+  margin-left: auto;
+}
+
+/* Message contact names */
+#workskin .rcs .sender {
+  font-size: 0.8em;
+  margin-left: 20px;
+  margin-bottom: 3px;
+}
+
+/* Status receipts */
+#workskin .rcs .status-receipt {
+  font-size: 0.75em;
+}
+
+#workskin .rcs .status-receipt,
+#workskin .rcs .status-receipt.sent {
+  text-align: right;
+  margin-right: 15px;
+}
+
+#workskin .rcs .status-receipt.received {
+  text-align: left;
+  margin-left: 15px;
+}
+
+/* Timestamp */
+#workskin .rcs .timestamp {
+  text-align: center;
+  font-size: 0.75em;
+  margin-bottom: 10px;
+}
+
+/* Typing indicators */
+#workskin .rcs .typing,
+#workskin .rcs .typing::after,
+#workskin .rcs .typing::before {
+  border-radius: 100%;
+  content: '';
+  display: inline-block;
+  height: 0.5em;
+  width: 0.5em;
+}
+
+#workskin .rcs .typing {
+  margin: 0 0.5em;
+}
+
+#workskin .rcs .typing::after,
+#workskin .rcs .typing::before {
+  position: absolute;
+}
+
+#workskin .rcs .typing::before {
+  transform: translateX(-150%);
+}
+
+#workskin .rcs .typing::after {
+  transform: translateX(150%);
+}
+
+/* /2 - Layout */
+
+/* /RCS CLIENT */
+/* IRC CLIENT */
+
+/* 1 - Theme colors */
+/* 1.1 - Dark theme (Default) */
+/* Default colors */
+#workskin .irc,
+#workskin .irc.dark-theme {
+  background: #2c2c2c;
+  border-color: #686868;
+  color: #dedede;
+}
+
+/* Code blocks */
+#workskin .irc code,
+#workskin .irc.dark-theme code {
+  background-color: #444444;
+  border-color: #686868;
+  color: #fdab7f;
+}
+
+/* Chat channel headers */
+#workskin .irc h1,
+#workskin .irc.dark-theme h1 {
+  background-color: #444444;
+  border-color: #606060;
+  color: #c0c0c0;
+}
+
+/* Text input boxes */
+#workskin .irc .inputbox,
+#workskin .irc .inputbox-empty,
+#workskin .irc.dark-theme .inputbox,
+#workskin .irc.dark-theme .inputbox-empty {
+  background-color: #444444;
+}
+
+#workskin .irc .inputbox,
+#workskin .irc.dark-theme .inputbox {
+  color: #dedede;
+}
+
+#workskin .irc .inputbox-empty,
+#workskin .irc.dark-theme .inputbox-empty {
+  color: #808080;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after,
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before,
+#workskin .irc.dark-theme .inputbox::after,
+#workskin .irc.dark-theme .inputbox-empty::after,
+#workskin .irc.dark-theme .inputbox::before,
+#workskin .irc.dark-theme .inputbox-empty::before {
+  color: #c0c0c0;
+}
+
+/* Links within messages */
+#workskin .irc .link,
+#workskin .irc.dark-theme .link {
+  color: #88c5ff;
+}
+
+/* User mentions */
+#workskin .irc .mention,
+#workskin .irc.dark-theme .mention {
+  background-color: #408040;
+  color: white;
+}
+
+#workskin .irc .mention:hover,
+#workskin .irc.dark-theme .mention:hover {
+  background-color: #3daa3d;
+  color: white;
+}
+
+/* Highlighted messages */
+#workskin .irc .message-highlight,
+#workskin .irc.dark-theme .message-highlight {
+  background-color: #535328;
+}
+
+/* Typing indicators */
+#workskin .irc .typing,
+#workskin .irc.dark-theme .typing {
+  color: #909090;
+}
+
+/* 1.1 - /Dark theme */
+
+/* 1.2 - Light theme */
+/* Default colors */
+#workskin .irc.light-theme {
+  background: #f9f9f9;
+  border-color: #c0c0c0;
+  color: #202020;
+}
+
+/* Code blocks */
+#workskin .irc.light-theme code {
+  background-color: #e8e8e8;
+  border-color: #b0b0b0;
+  color: #a54410;
+}
+
+/* Chat channel headers */
+#workskin .irc.light-theme h1 {
+  background-color: #e0e0e0;
+  border-color: #b0b0b0;
+  color: #707070;
+}
+
+/* Text input boxes */
+#workskin .irc.light-theme .inputbox,
+#workskin .irc.light-theme .inputbox-empty {
+  background-color: #e0e0e0;
+}
+
+#workskin .irc.light-theme .inputbox {
+  color: #202020;
+}
+
+#workskin .irc.light-theme .inputbox-empty {
+  color: #a0a0a0;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc.light-theme .inputbox::after,
+#workskin .irc.light-theme .inputbox-empty::after,
+#workskin .irc.light-theme .inputbox::before,
+#workskin .irc.light-theme .inputbox-empty::before {
+  color: #888888;
+}
+
+/* Links within messages */
+#workskin .irc.light-theme .link {
+  color: #4e92f8;
+}
+
+/* User mentions */
+#workskin .irc.light-theme .mention {
+  background-color: #b2f0a3;
+  color: black;
+}
+
+#workskin .irc.light-theme .mention:hover {
+  background-color: #429642;
+  color: white;
+}
+
+/* Highlighted messages */
+#workskin .irc.light-theme .message-highlight {
+  background-color: #ebebb6;
+}
+
+/* Typing indicators */
+#workskin .irc.light-theme .typing {
+  color: #909090;
+}
+
+/* 1.2 - /Light theme */
+/* 1 - /Theme colors */
+
+/* 2 - Layout */
+/* Default styling */
+#workskin .irc {
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 2px;
+  font-family: "Helvetica";
+  padding: 10px;
+}
+
+/* Alternate styling for mobile UI */
+#workskin .irc.mobile {
+  left: 0;
+  margin: auto;
+  max-width: 30em;
+  position: relative;
+  right: 0;
+}
+
+/* Code blocks */
+#workskin .irc code {
+  border-style: solid;
+  border-width: 1.5px;
+  font-weight: bold;
+}
+
+/* Chat channel headers */
+#workskin .irc h1 {
+  border-bottom: 2px solid;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-top: 0;
+  overflow: hidden;
+  padding: 10px 10px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Default element styling. (Prevents spillover from other styling.) */
+#workskin .irc span {
+  cursor: auto;
+  font-weight: normal;
+}
+
+/* Text input boxes */
+#workskin .irc .inputbox,
+#workskin .irc .inputbox-empty {
+  border-radius: 0.33em;
+  cursor: text;
+  padding: 2px 7px;
+  margin-top: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+
+#workskin .irc .inputbox:not(.typing ~ .inputbox),
+#workskin .irc .inputbox-empty:not(.typing ~ .inputbox-empty) {
+  margin-top: 27px;
+}
+
+/* Buttons surrounding text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after,
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* "Send message" button after text input boxes */
+#workskin .irc .inputbox::after,
+#workskin .irc .inputbox-empty::after {
+  content: "\25b6";
+  font-size: 1.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* "Upload file" button before text input boxes */
+#workskin .irc .inputbox::before,
+#workskin .irc .inputbox-empty::before {
+  content: "+";
+  font-size: 2em;
+  margin-right: 0.5em;
+}
+
+/* Usernames in text input boxes */
+#workskin .irc .inputbox .user,
+#workskin .irc .inputbox-empty .user {
+  cursor: text;
+}
+
+/* Links within messages */
+#workskin .irc .link {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* User mentions */
+#workskin .irc .mention {
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 1px 3px;
+}
+
+#workskin .irc .mention:hover {
+  text-decoration: underline;
+}
+
+/* Pad messages for readability's sake */
+#workskin .irc .message,
+#workskin .irc .message-highlight {
+  margin-bottom: 5px;
+}
+
+/* Usernames in messages */
+#workskin .irc .message .sender,
+#workskin .irc .message .user,
+#workskin .irc .message-highlight .sender,
+#workskin .irc .message-highlight .user {
+  cursor: pointer;
+}
+
+/* Decorate message senders */
+#workskin .irc .message .sender::after,
+#workskin .irc .message-highlight .sender::after {
+  content: "\003e";
+}
+
+#workskin .irc .message .sender::before,
+#workskin .irc .message-highlight .sender::before {
+  content: "\003c";
+}
+
+/* Replied message previews */
+#workskin .irc .reply {
+  cursor: pointer;
+  font-size: 0.85em;
+  font-style: italic;
+  max-width: 40em;
+  overflow: hidden;
+  padding-left: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Decorate reply preview senders */
+#workskin .irc .reply .sender::after {
+  content: ": ";
+}
+
+#workskin .irc .reply .sender::before {
+  content: "reply to ";
+  font-weight: normal;
+}
+
+/* Override cursor for reply preview text */
+#workskin .irc .reply .text {
+  cursor: pointer;
+}
+
+/* Default styling for usernames */
+#workskin .irc .sender,
+#workskin .irc .user {
+  font-weight: bold;
+}
+
+/* Differentiate system messages from user messages */
+#workskin .irc .system {
+  font-style: italic;
+}
+
+/* Decorate message timestamps */
+#workskin .irc .time::after {
+  content: "]";
+}
+
+#workskin .irc .time::before {
+  content: "[";
+}
+
+/* Typing indicators */
+#workskin .irc .typing {
+  cursor: default;
+  font-size: 0.875em;
+  font-style: italic;
+  padding-left: 20px;
+}
+
+/* Override cursor for users in typing indicators */
+#workskin .irc .typing .user {
+  cursor: default;
+  font-weight: bold;
+}
+
+/* 2 - /Layout */
+
+/* /IRC CLIENT */
+/* PAPER AND HANDWRITING */
+
+/*  1 - Colors and sizes */
+/*  1.1 - Colors */
+/*  1.1.1 - Paper types */
+
+/* Base styling for all paper */
+#workskin .paper {
+  background-color: #ffffff;
+}
+
+/* College-ruled paper */
+#workskin .paper.college-ruled {
+  background-image:
+    linear-gradient(to bottom, transparent 2px, #00b0d7 2px 3px, transparent 3px 25px);
+  background-repeat: repeat;
+  background-size: 100% 25px
+}
+
+#workskin .paper.college-ruled::after {
+  background-color: #db4034;
+}
+
+#workskin .paper.college-ruled::before {
+  background-color: inherit;
+}
+
+/* Index cards */
+#workskin .paper.index-card.lined {
+  background-image: linear-gradient(to bottom, transparent 24px, #00b0d7 1px);
+  background-size: 100% 25px;
+  background-position-y: 5px;
+}
+
+#workskin .paper.index-card.lined::after {
+  background-color: #db4034;
+}
+
+#workskin .paper.index-card.lined::before {
+  background-color: inherit;
+}
+
+/* Notepad paper */
+#workskin .paper.notepad {
+  background-image: linear-gradient(to bottom, transparent 2px, #b9b9b9 2px 3px, transparent 3px 25px);
+  background-size: 100% 25px;
+}
+
+#workskin .paper.notepad::before {
+  background-color: inherit;
+}
+
+/* /1.1.1 - Paper types */
+/*  1.1.2 - Paper colors */
+
+#workskin .paper.black {
+  background-color: #383838;
+}
+
+#workskin .paper.blue {
+  background-color: #56d2e2;
+}
+
+#workskin .paper.blue.pastel {
+  background-color: #b7f5fd;
+}
+
+#workskin .paper.dark-grey {
+  background-color: #686868;
+}
+
+#workskin .paper.green {
+  background-color: #3bc241;
+}
+
+#workskin .paper.green.pastel {
+  background-color: #b0f7b3;
+}
+
+#workskin .paper.indigo {
+  background-color: #2aaddc;
+}
+
+#workskin .paper.indigo.pastel {
+  background-color: #a1e6ff;
+}
+
+#workskin .paper.light-grey {
+  background-color: #c0c0c0;
+}
+
+#workskin .paper.lime {
+  background-color: #a6d740;
+}
+
+#workskin .paper.lime.pastel {
+  background-color: #dcfa9a;
+}
+
+#workskin .paper.orange {
+  background-color: #f6c02c;
+}
+
+#workskin .paper.orange.pastel {
+  background-color: #ffde83;
+}
+
+#workskin .paper.pink {
+  background-color: #ff6c9d;
+}
+
+#workskin .paper.pink.pastel {
+  background-color: #ffc3d7;
+}
+
+#workskin .paper.purple {
+  background-color: #bf80c6;
+}
+
+#workskin .paper.purple.pastel {
+  background-color: #e4b8e9;
+}
+
+#workskin .paper.red {
+  background-color: #e06b6b;
+}
+
+#workskin .paper.red.pastel {
+  background-color: #ffbfbf;
+}
+
+#workskin .paper.salmon {
+  background-color: #f9adb2;
+}
+
+#workskin .paper.salmon.pastel {
+  background-color: #ffdadb;
+}
+
+#workskin .paper.teal {
+  background-color: #20cfa3;
+}
+
+#workskin .paper.teal.pastel {
+  background-color: #92f1da;
+}
+
+#workskin .paper.yellow {
+  background-color: #ebe343;
+}
+
+#workskin .paper.yellow.pastel {
+  background-color: #fffa98;
+}
+
+#workskin .paper.white {
+  background-color: #ffffff;
+}
+
+/* /1.1.2 - Paper colors */
+/*  1.1.3 - Text colors */
+
+#workskin .paper .text.black {
+  color: #000000;
+}
+
+#workskin .paper .text.blue {
+  color: #00a0df;
+}
+
+#workskin .paper .text.brown {
+  color: #8b5814;
+}
+
+#workskin .paper .text.cyan {
+  color: #00e3eb;
+}
+
+#workskin .paper .text.dark-grey {
+  color: #666666;
+}
+
+#workskin .paper .text.green {
+  color: #07b102;
+}
+
+#workskin .paper .text.indigo {
+  color: #0400ff;
+}
+
+#workskin .paper .text.light-grey {
+  color: #a3a3a3;
+}
+
+#workskin .paper .text.lime {
+  color: #94e400;
+}
+
+#workskin .paper .text.magenta {
+  color: #ff00ff;
+}
+
+#workskin .paper .text.orange {
+  color: #ff7300;
+}
+
+#workskin .paper .text.pink {
+  color: #ff00c8;
+}
+
+#workskin .paper .text.purple {
+  color: #ae00ff;
+}
+
+#workskin .paper .text.red {
+  color: #ff0000;
+}
+
+#workskin .paper .text.tan {
+  color: #dab588;
+}
+
+#workskin .paper .text.teal {
+  color: #00d394;
+}
+
+#workskin .paper .text.yellow {
+  color: #ddc700;
+}
+
+#workskin .paper .text.white {
+  color: #e0e0e0;
+}
+
+/* /1.1.3 - Text colors */
+/* /1.1 - Colors */
+/*  1.2 - Sizes */
+/*  1.2.1 - Text sizes */
+
+#workskin .paper .text {
+  font-size: 1.15em;
+}
+
+#workskin .paper .text.big {
+  font-size: 1.3em;
+}
+
+#workskin .paper .text.huge {
+  font-size: 1.65em;
+}
+
+#workskin .paper .text.small {
+  font-size: 1em;
+}
+
+#workskin .paper .text.tiny {
+  font-size: 0.9em;
+}
+
+/* /1.2.1 - Text sizes */
+/* /1.2 - Sizes */
+/* /1 - Colors and sizes */
+/*  2 - Layout */
+/*  2.1 - Paper */
+/*  2.1.2 - Paper type bases */
+
+/*  2.1.2.1 - Default */
+
+#workskin .paper {
+  border-radius: 1px;
+  margin: 10px auto;
+  overflow: hidden;
+  position: relative;
+  width: 97%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .2), 0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+/* Prevent hover effects on table elements for paper */
+#workskin .paper tr:hover,
+#workskin .paper td:hover {
+  background: none;
+}
+
+/* /2.1.2.1 - Default */
+/*  2.1.2.2 - Lined papers */
+
+#workskin .paper.college-ruled::before,
+#workskin .paper.notepad::before {
+  content: '';
+  display: block;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+#workskin .paper.college-ruled::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: 10%;
+  top: 0;
+  z-index: 1;
+}
+
+/* /2.1.2.2 - Lined papers */
+/*  2.1.2.3 - Small papers */
+
+#workskin .paper.index-card,
+#workskin .paper.sticky-note {
+  display: block;
+  padding: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+#workskin .paper.index-card {
+  height: 18em;
+  width: 30em;
+  /* 5:3 aspect ratio */
+  max-height: 60%;
+  max-width: 100%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+#workskin .paper.index-card.lined {
+  padding-top: 2px;
+}
+
+#workskin .paper.index-card.lined::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 29px;
+  z-index: 1;
+}
+
+#workskin .paper.index-card.lined::before {
+  content: '';
+  display: block;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+#workskin .paper.index-card.lined .text {
+  position: relative;
+}
+
+#workskin .paper.sticky-note {
+  height: 20em;
+  width: 20em;
+}
+
+/* /2.1.2.3 - Small papers */
+/* /2.1.2 - Paper type bases */
+/*  2.1.3 - Paper components */
+
+/* Blank page-header space */
+#workskin .paper.page-header td {
+  padding-top: 78px;
+}
+
+#workskin .paper.page-header::before {
+  background-color: inherit;
+  content: '';
+  display: block;
+  height: 99px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+#workskin .paper.page-header .text {
+  position: relative;
+}
+
+/* /2.1.3 - Paper components */
+/* /2.1 - Paper */
+/*  2.2 - Text */
+/*  2.2.1 - Text bases */
+
+/* Default styling for text on paper */
+#workskin .paper .text {
+  font-family: "Calibri", "Arial", sans-serif;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+/* Style adjustments for handwriting text */
+#workskin .paper .text.handwriting {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Coming Soon", casual, sans-serif;
+}
+
+/* Notes in page headers */
+/* These have to be in a fully separate element from other text to work properly */
+#workskin .paper .text.page-header-note {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-inline: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30px;
+  width: fit-content;
+  z-index: 2;
+}
+
+#workskin .paper .text.page-header-note.left {
+  left: 4%;
+  right: auto;
+}
+
+#workskin .paper .text.page-header-note.right {
+  left: auto;
+  right: 4%;
+}
+
+/* Page titles */
+#workskin .paper .text.title {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* /2.2.1 - Text bases */
+/*  2.2.2 - Paper-specific text */
+
+#workskin .paper.college-ruled .text,
+#workskin .paper.index-card.lined .text,
+#workskin .paper.notepad .text {
+  line-height: 25px;
+}
+
+/*  2.2.2 - Paper-specific text */
+/* /2.2 - Text */
+/*  2.3 - Style adjustments */
+/*  2.3.1 - Slants */
+
+/* Component slants */
+#workskin .paper .slant-left,
+#workskin .paper.slant-left {
+  transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  -o-transform: rotate(4deg);
+  -webkit-transform: rotate(4deg);
+}
+
+#workskin .paper .slant-left-hard,
+#workskin .paper.slant-left-hard {
+  transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  -webkit-transform: rotate(6deg);
+}
+
+#workskin .paper .slant-left-slight,
+#workskin .paper.slant-left-slight {
+  transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+}
+
+#workskin .paper .slant-right,
+#workskin .paper.slant-right {
+  transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+}
+
+#workskin .paper .slant-right-hard,
+#workskin .paper.slant-right-hard {
+  transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+}
+
+#workskin .paper .slant-right-slight,
+#workskin .paper.slant-right-slight {
+  transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -webkit-transform: rotate(-2deg);
+}
+
+/* Width compensation for slanted paper contents */
+/* Necessary to prevent visual artifacts for elements with narrow contents */
+#workskin .paper .slant-left,
+#workskin .paper .slant-right,
+#workskin .paper .slant-left-hard,
+#workskin .paper .slant-right-hard,
+#workskin .paper .slant-left-slight,
+#workskin .paper .slant-right-slight {
+  width: fit-content;
+}
+
+/* Margin compensation for slanted paper */
+#workskin .paper.slant-left,
+#workskin .paper.slant-right {
+  margin-bottom: 4em;
+  margin-top: 4em;
+}
+
+#workskin .paper.slant-left-hard,
+#workskin .paper.slant-right-hard {
+  margin-bottom: 6em;
+  margin-top: 6em;
+}
+
+#workskin .paper.slant-left-slight,
+#workskin .paper.slant-right-slight {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+#workskin .text.slant-left,
+#workskin .text.slant-right {
+  margin-bottom: 2em;
+  margin-top: auto;
+}
+
+#workskin .text.slant-left-hard,
+#workskin .text.slant-right-hard {
+  margin-bottom: 2.5em;
+  margin-top: auto;
+}
+
+#workskin .text.slant-left-slight,
+#workskin .text.slant-right-slight {
+  margin-bottom: 1.5em;
+  margin-top: auto;
+}
+
+/* /2.3.1 - Slants */
+/* /2.3 - Style adjustments */
+/*  2.3 - Priority overrides */
+
+/* Extra padding for text on papers with a left margin */
+#workskin .paper.college-ruled .text:not(.page-header-note) {
+  margin-left: 11%;
+}
+
+#workskin .paper.college-ruled .text.page-header-note:not(.right) {
+  left: 11%;
+}
+
+/* /2.3 - Priority overrides */
+/* /2 - Layout */
+
+/* /PAPER AND HANDWRITING */
