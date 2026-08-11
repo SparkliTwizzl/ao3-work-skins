@@ -62,6 +62,12 @@
   color: #ffffff;
 }
 
+/* Message contact names */
+#workskin .rcs .sender,
+#workskin .rcs.light-theme .sender {
+  color: #686868;
+}
+
 /* Status receipts */
 #workskin .rcs .status-receipt,
 #workskin .rcs.light-theme .status-receipt {
@@ -135,6 +141,11 @@
   color: #ffffff;
 }
 
+/* Message contact names */
+#workskin .rcs .sender {
+  color: #c0c0c0;
+}
+
 /* Status receipts */
 #workskin .rcs.dark-theme .status-receipt {
   color: #989898;
@@ -196,7 +207,7 @@
   content: "\22ee";
   font-size: 1.5em;
   right: 20px;
-  top: 1%;
+  top: 0.2em;
 }
 
 /* Back button in headers */
@@ -204,7 +215,7 @@
   content: "\25c0";
   font-size: 1.15em;
   left: 10px;
-  top: 2%;
+  top: 0.45em;
 }
 
 /* Text input boxes */
@@ -264,7 +275,7 @@
   border-radius: 0.5em;
   border-style: none;
   padding: 5px 10px;
-  margin: 10px;
+  margin: 0 10px 10px;
   max-width: 22.5em;
   width: fit-content;
 }
@@ -279,7 +290,14 @@
   margin-left: auto;
 }
 
-/* Status receipt */
+/* Message contact names */
+#workskin .rcs .sender {
+  font-size: 0.8em;
+  margin-left: 20px;
+  margin-bottom: 3px;
+}
+
+/* Status receipts */
 #workskin .rcs .status-receipt {
   font-size: 0.75em;
 }
@@ -299,6 +317,7 @@
 #workskin .rcs .timestamp {
   text-align: center;
   font-size: 0.75em;
+  margin-bottom: 10px;
 }
 
 /* Typing indicators */
