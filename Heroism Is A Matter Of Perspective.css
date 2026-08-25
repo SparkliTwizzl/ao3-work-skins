@@ -1,0 +1,179 @@
+/*  1 - Colors */
+/*  1.1 - Text colors */
+
+#workskin .text.black {
+  color: #000000;
+}
+
+#workskin .text.blue {
+  color: #00a0df;
+}
+
+#workskin .text.brown {
+  color: #8b5814;
+}
+
+#workskin .text.crimson {
+  color: #c00000;
+}
+
+#workskin .text.cyan {
+  color: #00e3eb;
+}
+
+#workskin .text.dark-grey {
+  color: #666666;
+}
+
+#workskin .text.green {
+  color: #07b102;
+}
+
+#workskin .text.indigo {
+  color: #0400ff;
+}
+
+#workskin .text.light-grey {
+  color: #a3a3a3;
+}
+
+#workskin .text.lime {
+  color: #94e400;
+}
+
+#workskin .text.magenta {
+  color: #ff00ff;
+}
+
+#workskin .text.orange {
+  color: #ff7300;
+}
+
+#workskin .text.pink {
+  color: #ff00c8;
+}
+
+#workskin .text.purple {
+  color: #ae00ff;
+}
+
+#workskin .text.red {
+  color: #ff0000;
+}
+
+#workskin .text.tan {
+  color: #dab588;
+}
+
+#workskin .text.teal {
+  color: #00d394;
+}
+
+#workskin .text.yellow {
+  color: #ddc700;
+}
+
+#workskin .text.white {
+  color: #e0e0e0;
+}
+
+/* /1.1 - Text colors */
+/*  1.2 - Background colors */
+
+#workskin .text.on-black {
+  background-color: #000000;
+}
+
+#workskin .text.on-blue {
+  background-color: #00a0df;
+}
+
+#workskin .text.on-brown {
+  background-color: #8b5814;
+}
+
+#workskin .text.on-crimson {
+  background-color: #c00000;
+}
+
+#workskin .text.on-cyan {
+  background-color: #00e3eb;
+}
+
+#workskin .text.on-dark-grey {
+  background-color: #666666;
+}
+
+#workskin .text.on-green {
+  background-color: #07b102;
+}
+
+#workskin .text.on-indigo {
+  background-color: #0400ff;
+}
+
+#workskin .text.on-light-grey {
+  background-color: #a3a3a3;
+}
+
+#workskin .text.on-lime {
+  background-color: #94e400;
+}
+
+#workskin .text.on-magenta {
+  background-color: #ff00ff;
+}
+
+#workskin .text.on-orange {
+  background-color: #ff7300;
+}
+
+#workskin .text.on-pink {
+  background-color: #ff00c8;
+}
+
+#workskin .text.on-purple {
+  background-color: #ae00ff;
+}
+
+#workskin .text.on-red {
+  background-color: #ff0000;
+}
+
+#workskin .text.on-tan {
+  background-color: #dab588;
+}
+
+#workskin .text.on-teal {
+  background-color: #00d394;
+}
+
+#workskin .text.on-yellow {
+  background-color: #ddc700;
+}
+
+#workskin .text.on-white {
+  background-color: #e0e0e0;
+}
+
+/* /1.2 - Background colors */
+/* /1 - Colors */
+/*  2 - Styling */
+
+#workskin .text.cursive {
+  font-family: cursive;
+}
+
+#workskin .text.monospace {
+  font-family: monospace;
+}
+
+#workskin .text.sans-serif {
+  font-family: sans-serif;
+}
+
+#workskin .text.serif {
+  font-family: serif;
+}
+
+/* /2 - Styling */
