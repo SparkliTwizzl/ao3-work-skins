@@ -1,5 +1,18 @@
 /*  1 - Colors */
 /*  1.1 - Text colors */
+/*  1.1.1 - Named character text colors */
+
+#workskin .eiji,
+#workskin .mimic {
+  color: #d80000;
+}
+
+#workskin .kotona {
+  color: #c23eff;
+}
+
+/* /1.1.1 - Named character text colors */
+/*  1.1.2 - Generic text colors */
 
 #workskin .text.black {
   color: #000000;
@@ -77,6 +90,7 @@
   color: #e0e0e0;
 }
 
+/* /1.1.2 - Generic text colors */
 /* /1.1 - Text colors */
 /*  1.2 - Background colors */
 
